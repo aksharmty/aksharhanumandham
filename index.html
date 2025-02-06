@@ -12,6 +12,30 @@
     <meta property="og:description" content="Get solutions for your physical and mental issues through mantra chanting at Akshar Hanuman Dham. Contact us today!">
     <meta property="og:image" content="akshar-hanuman-dham.png">
     <title>Get a Healthy Life with Mantra Chanting - Akshar Hanuman Dham</title>
+   <style>.top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 50%;
+            display: none; /* Hidden by default */
+            transition: background-color 0.3s;
+        }
+
+        .top-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Show the button when the page is scrolled down */
+        .top-button-visible {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -27,7 +51,42 @@
             <h2>Mantra Chanting for Health, Prosperity, and Peaceful Life</h2>
             <img src="akshar-hanuman-dham.png"><br>
             <p>At <b>Akshar Hanuman Dham</b>, we offer effective and safe mantra healing and mantra chanting to address physical, mental, and spiritual well-being. Whether you are seeking healing, prosperity, or inner peace, our mantra healing services can support your journey toward a balanced and harmonious life.</p>
-            <button><a href="#contact">Contact Us Today</a></button>
+                       <button class="contact-btn">
+  <a href="#contact">Contact Us Today</a>
+</button>
+
+<!-- Add this CSS to your stylesheet or in the <style> tag -->
+<style>
+  .contact-btn {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50px; /* Rounded button */
+    text-align: center; /* Center the text */
+    display: inline-block; /* Make button behave like a block element */
+    text-decoration: none; /* Remove underline from the link */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth transition for hover */
+  }
+
+  .contact-btn a {
+    color: white; /* Ensure the text inside the <a> tag is white */
+    text-decoration: none;
+    font-weight: bold; /* Make the link text bold */
+  }
+
+  /* Add hover effects for the button */
+  .contact-btn:hover {
+    background-color: #0073e6; /* Slightly darker blue */
+    transform: scale(1.1); /* Slightly enlarge the button */
+  }
+
+  .contact-btn:focus {
+    outline: none; /* Remove outline when focused */
+  }
+</style>
         </section>
 
         <section id="services">
@@ -39,7 +98,7 @@ Because mantra healing works on the principle of faith and belief, the results u
 </section>
 <section id="fee">
 <h3>Fee</h3>
-Consultation Fee: ₹500<br>
+Consultation Fee: ₹500 for 30 minutes<br>
 Healing Session: ₹100 for a 5-minute session
 </section>
 <section id="bank">
@@ -112,5 +171,31 @@ setupad(publisher,adtype,adsize,colbackground,colborder,coltext,coltitle);
   <footer>
     <p>Footer Content &copy; 2025 Akshar Hanuman Dham | All Rights Reserved</p>
   </footer>
+<!-- Back to Top Button -->
+  <button class="top-button" onclick="scrollToTop()">Back to Top</button>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+
+    // Scroll to top function
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'  // Smooth scroll effect
+      });
+    }
+
+    // Show or hide the "Back to Top" button based on scroll position
+    window.onscroll = function() {
+      var topButton = document.querySelector('.top-button');
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        topButton.style.display = "block";  // Show button
+      } else {
+        topButton.style.display = "none";  // Hide button
+      }
+    };
+  </script>
 </body>
 </html>
