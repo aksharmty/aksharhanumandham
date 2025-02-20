@@ -14,7 +14,159 @@
     <meta property="og:title" content="Abhimantrit Hanuman Mantra Jaap Mala - Akshar Hanuman Dham">
     <meta property="og:image" content="mala.jpg">
     <meta property="og:url" content="mala.html">    
-    <LINK href="style.css" rel="stylesheet" type="text/css">
+    <style>
+    /* Basic styling for the navigation bar */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    header .logo {
+      font-size: 24px;
+    }
+
+    nav {
+      background-color: #333;
+      padding: 10px;
+      position: relative;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      justify-content: flex-start;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu li {
+      margin-right: 20px;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      padding: 8px;
+      display: block;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Main container styling */
+    .container {
+      display: flex;
+      flex: 1;
+      padding: 20px;
+    }
+
+    .main-content {
+      width: 75%;
+      padding-right: 20px;
+    }
+
+    .sidebar {
+      width: 25%;
+      padding-left: 20px;
+      background-color: #f4f4f4;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: auto;
+    }
+.top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 50%;
+            display: none; /* Hidden by default */
+            transition: background-color 0.3s;
+        }
+
+        .top-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Show the button when the page is scrolled down */
+        .top-button-visible {
+            display: block;
+        }
+    /* Media query for smaller screens (e.g., mobile) */
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 200px;
+      }
+
+      .menu li {
+        margin: 10px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .menu.show {
+        display: flex;
+      }
+
+      .container {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .main-content, .sidebar {
+        width: 100%;
+        padding: 10px 0;
+      }
+
+      .sidebar {
+        background-color: #f4f4f4;
+      }
+    }
+
+  </style>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PEGTY4KPM6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PEGTY4KPM6');
+</script>
 </head>
 <body>
    <header>
@@ -25,11 +177,11 @@
 
         <!-- Navigation menu -->
         <ul class="menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Mantra Healing</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html/#services">Mantra Healing</a></li>
         <li><a href="jaap-mala.html">Jaap Mala</a></li>
         <li><a href="#bank">Bank A/C</a></li>
-        <li><a href="#about">About Us</a></li>
+        <li><a href="index.html/#about">About Us</a></li>
         <li><a href="#contact">Contact Us</a></li>
         </ul>
       </nav>
@@ -38,7 +190,6 @@
    <div class="container">
       <!-- Main Content -->
       <div class="main-content">
-        <section id="home"> 
             <h2>Abhimantrit Hanuman Mantra Jaap Mala</h2>
             <img src="mala.jpg" style="width:100%;height:300px;"><br>
             <p>Enhance Your Meditation Practice with Abhimantrit Hanuman Mantra Jaap Mala</p>
@@ -47,32 +198,61 @@
 </button>
 
 <!-- Add this CSS to your stylesheet or in the <style> tag -->
-        </section>
+                <style>
+  .contact-btn {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50px; /* Rounded button */
+    text-align: center; /* Center the text */
+    display: inline-block; /* Make button behave like a block element */
+    text-decoration: none; /* Remove underline from the link */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth transition for hover */
+  }
 
-        <section id="services">
-<p>This <b>Sphatik Mala</b> is consecrated (Abhimantrit) with <b>Hanuman Mantras</b>, making it a powerful tool for spiritual growth. Perfect for meditation and <b>Hanuman worship</b>, this mala brings <b>mental peace</b>, enhances concentration, and aids in <b>spiritual advancement</b>.</p></section>
+  .contact-btn a {
+    color: white; /* Ensure the text inside the <a> tag is white */
+    text-decoration: none;
+    font-weight: bold; /* Make the link text bold */
+  }
+
+  /* Add hover effects for the button */
+  .contact-btn:hover {
+    background-color: #0073e6; /* Slightly darker blue */
+    transform: scale(1.1); /* Slightly enlarge the button */
+  }
+
+  .contact-btn:focus {
+    outline: none; /* Remove outline when focused */
+  }
+</style>
+        
+        <p>This <b>Sphatik Mala</b> is consecrated (Abhimantrit) with <b>Hanuman Mantras</b>, making it a powerful tool for spiritual growth. Perfect for meditation and <b>Hanuman worship</b>, this mala brings <b>mental peace</b>, enhances concentration, and aids in <b>spiritual advancement</b>.</p></section>
 <h3>Key Features:</h3>
-<p><b>102 or 108 beads:</b> Each bead represents a mantra repetition, strengthening your discipline in <b>meditation</b> and spiritual practices.
-<br><br><b>Purifies mind, body, and soul:</b> Regular use of the <b>Abhimantrit Mala</b> brings the blessings of <b>Hanuman Ji</b>, promotes <b>mental clarity</b>, and improves overall <b>well-being</b>.
-<br><br><b>Promotes peace and prosperity:</b> By using this mala, you invite positivity and balance into your life.</p>
+<p>&#9679;<b>102 or 108 beads:</b> Each bead represents a mantra repetition, strengthening your discipline in <b>meditation</b> and spiritual practices.
+<br><br>&#9679;<b>Purifies mind, body, and soul:</b> Regular use of the <b>Abhimantrit Mala</b> brings the blessings of <b>Hanuman Ji</b>, promotes <b>mental clarity</b>, and improves overall <b>well-being</b>.
+<br><br>&#9679;<b>Promotes peace and prosperity:</b> By using this mala, you invite positivity and balance into your life.</p>
+<section id="#fee">
 <h3>Price: ₹1100</h3>
 <p>Invest in your spiritual growth with this sacred mala, providing benefits from a one-time sadhana to a lifetime of peace and prosperity.</p>
-<section id="about">
+</section>
  <h2>How to Use a Mala</h2>
     <p>To use a mala, hold it in your right hand and start with the bead next to the guru bead. For each bead, recite your mantra. Once you reach the guru bead, turn the mala around without crossing the bead to continue your chanting.</p>
 
     <h2>Why Use a Mantra Jaap Mala?</h2>
     <p>Using a mantra jaap mala during meditation helps in maintaining focus, tracking progress, and creating a deeper spiritual connection. It brings discipline and mindfulness to the practice, offering a peaceful and calm mind.</p>
-</section>
-<section id="contact"> 
+
 <h2>How to Order:</h2>
 1. <b>Deposit the fee of ₹1100</b> into the provided bank account.<br>
 2. <b>Email us the following details</b> at <b>hanumandham[at]gmail[dot]com</b> to confirm your order:<br>
-   - Your <b>Name</b><br/>
-   - Your <b>Email Address</b><br/>
-   - Your <b>Phone Number</b><br/>
-   - Your <b>Full Address with Pin Code</b><br/>
-   - <b>Payment Details</b> with a screenshot of the transaction.<br/><br/>
+   &#9679; Your <b>Name</b><br/>
+   &#9679; Your <b>Email Address</b><br/>
+   &#9679; Your <b>Phone Number</b><br/>
+   &#9679; Your <b>Full Address with Pin Code</b><br/>
+   &#9679; <b>Payment Details</b> with a screenshot of the transaction.<br/><br/>
 
 Once we receive your payment confirmation, we will process your order and ship the <b>Abhimantrit Hanuman Mantra Jaap Mala</b> to your address.<br/><br/>
 <section id="bank">
@@ -97,8 +277,9 @@ Branch: C-BLOCK,JANAK PURI<br>
 IFSC Code SBIN0050258<br><br>
 </section>   
 <b>Note :</b> This product delivery within <b>India only.</b>
-    <h3>Contact Us Today</h3>
-Start your healing journey with the power of mantra chanting for better health, prosperity, and peace. 
+   <section id="contact">
+           <h3>Contact Us Today</h3>
+Contact for Abhimantrit Hanuman Mantra Jaap Mala. 
 <br>
 Akshar Hanuman Dham<br>  
 Address: J-34/209, Gali No.4,<br>  
