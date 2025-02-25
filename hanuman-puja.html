@@ -106,23 +106,48 @@
 
     <div id="footer"></div>
 
-    <script>
-        // Scroll to top function
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'  // Smooth scroll effect
-            });
-        }
-        // Show or hide the "Back to Top" button based on scroll position
-        window.onscroll = function() {
-            var topButton = document.querySelector('.top-button');
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                topButton.style.display = "block";  // Show button
-            } else {
-                topButton.style.display = "none";  // Hide button
-            }
-        };
-    </script>
+   <script>
+     // Toggle menu visibility on smaller screens
+     function toggleMenu() {
+       const menu = document.querySelector('.menu');
+       menu.classList.toggle('show');
+     }
+     // Scroll to top function
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'  // Smooth scroll effect
+      });
+    }
+
+    // Show or hide the "Back to Top" button based on scroll position
+    window.onscroll = function() {
+      var topButton = document.querySelector('.top-button');
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        topButton.style.display = "block";  // Show button
+      } else {
+        topButton.style.display = "none";  // Hide button
+      }
+    };
+   
+    // Function to load external HTML into a specific element
+    function loadHTML(elementId, file) {
+      fetch(file)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById(elementId).innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error loading ' + file + ':', error);
+        });
+    }
+
+    window.onload = function() {
+      loadHTML('header', 'header.html');  // Load header
+      loadHTML('sidebar', 'sidebar.html'); // Load sidebar
+      loadHTML('footer', 'footer.html');  // Load footer
+    };
+  </script>
 </body>
 </html>
+
