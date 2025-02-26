@@ -95,7 +95,7 @@
     </section>
          
      </div>
-      <!-- Sidebar -->
+       <!-- Sidebar -->
       <div class="sidebar">
           <div id="sidebar"></div>
       </div>
@@ -127,6 +127,24 @@
         topButton.style.display = "none";  // Hide button
       }
     };
-   </script>
+   
+    // Function to load external HTML into a specific element
+    function loadHTML(elementId, file) {
+      fetch(file)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById(elementId).innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error loading ' + file + ':', error);
+        });
+    }
+
+    window.onload = function() {
+      loadHTML('header', 'header.html');  // Load header
+      loadHTML('sidebar', 'sidebar.html'); // Load sidebar
+      loadHTML('footer', 'footer.html');  // Load footer
+    };
+  </script>
 </body>
 </html>
