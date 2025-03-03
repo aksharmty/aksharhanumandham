@@ -6,19 +6,34 @@
     <title>Play Audio 100 Times</title>
 </head>
 <body>
+   
+    <button id="startBtn">Start Music</button> <!-- User must click -->
+    <p id="status">Click the button to start</p>
     <audio id="bg-music">
-        <source src="voice-1.mp3" type="audio/mp3">
+        <source src="https://aksharhanumandham.in/voice-1.mp3" type="audio/mp3">
         Your browser does not support the audio element.
-    </audio>
-
-    <p id="status">Playing...</p> <!-- Status message -->
-
+    </audio> 
+    
     <script>
-        const audio = document.getElementById("bg-music");
+       const audio = document.getElementById("bg-music");
         const statusText = document.getElementById("status");
+        const startBtn = document.getElementById("startBtn");
         let playCount = 0;
-        const maxPlays = 10;
+        const maxPlays = 3;
 
+        // Function to start audio when user clicks button
+        function startAudio() {
+            startBtn.style.display = "none"; // Hide button after clicking
+            audio.play()
+                .then(() => {
+                    statusText.innerText = "Playing...";
+                })
+                .catch(err => {
+                    statusText.innerText = "Autoplay blocked! Please press Play on the audio.";
+                });
+        }
+
+        // Repeat audio 100 times
         audio.addEventListener("ended", () => {
             playCount++;
             if (playCount < maxPlays) {
@@ -28,7 +43,8 @@
             }
         });
 
-        audio.play(); // Start playback
+        // Add event listener to start button
+        startBtn.addEventListener("click", startAudio);
     </script>
 </body>
 </html>
