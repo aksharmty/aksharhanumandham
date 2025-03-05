@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCAvenue Integration Example</title>
+</head>
+<body>
+    <form method="post" action="https://www.ccavenue.com/shopzone/cc_details.jsp" name="cca_form" id="cca_form">
+  <input type="hidden" name="merchant_id" value="4174068" />
+  <input type="hidden" name="access_code" value="AVBW58MC13AJ95WBJA" />
+  <input type="hidden" name="working_key" value="247F85139E13FF824A5C1A969A930BED" />
+        <input type="hidden" name="order_id" value="ORDER_ID" />
+        <input type="hidden" name="amount" value="1000" />
+        <input type="hidden" name="currency" value="INR" />
+        <input type="hidden" name="redirect_url" value="YOUR_REDIRECT_URL" />
+        <input type="hidden" name="cancel_url" value="YOUR_CANCEL_URL" />
+        <button type="submit">Pay Now</button>
+    </form>
+</body>
+</html>
+
+<?php
+// PHP code for server-side verification
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Capture response from CCAvenue
+    $order_id = $_POST['order_id'];
+    $tracking_id = $_POST['tracking_id'];
+    $response_code = $_POST['response_code'];
+    
+    // Check if the response code is '0' (success)
+    if ($response_code == "0") {
+        echo "Payment Successful!";
+    } else {
+        echo "Payment Failed!";
+    }
+}
+?>
+
