@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4305348743992957"
+     crossorigin="anonymous"></script>     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='shortcut icon' href='logo.png' type='image/x-icon' />
+    <meta name="description" content="Privacy Policy">
+    <meta name="keywords" content="akshar, akshardham, akshar hanuman dham, hanuman dham,hanuman,hanuman chalisa">
+    <meta name="author" content="akshar hanuman dham">
+    <title>Privacy Policy</title>
+   <LINK href="style.css" rel="stylesheet" type="text/css">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QS90E57647"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QS90E57647');
+</script>    
+</head>
+<body>
+    <div id="header"></div> 
+     <div class="container">
+         <div class="main-content">
+        <h1 style="text-align:center;">Blessings of Lord Hanuman in Every Bite</h1>
+        <p>Order Sweet Makhana Prasad from Aksha Hanuman Dham and bring home divine blessings.</p>
+        <img src="hanuman.jpg" alt="Aksha Hanuman Dham Temple">
+    
+    
+        <h2>Sweet Makhana Prasad at Aksha Hanuman Dham</h2>
+        <p>Sweet Makhana Prasad is a divine offering made with love, devotion, and blessings of Lord Hanuman...</p>
+        <img src="prasad.jpg" alt="Sweet Makhana Prasad">
+        <p>This special prasad is prepared with purity and is perfect for nourishing both the body and soul.</p>
+    </section>
+
+    <h2>Order Your Sweet Makhana Prasad</h2>
+        <p>Get your share of Sweet Makhana Prasad, blessed and packaged with divine blessings from Aksha Hanuman Dham.</p>
+        <form action="#" method="POST">
+            <label for="name">Full Name:</label><br>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="phone">Phone Number:</label><br>
+            <input type="text" id="phone" name="phone"><br><br>
+            <label for="address">Address:</label><br>
+            <input type="text" id="address" name="address"><br><br>
+            <label for="quantity">Quantity (in boxes):</label><br>
+            <input type="number" id="quantity" name="quantity" min="1"><br><br>
+            <label for="special-request">Special Request (Optional):</label><br>
+            <textarea id="special-request" name="special-request"></textarea><br><br>
+            <input type="submit" value="Place Order">
+        </form>
+     <h2>About Aksha Hanuman Dham</h2>
+        <p>Aksha Hanuman Dham is a sacred temple dedicated to Lord Hanuman...</p>
+</div>
+      <!-- Sidebar -->
+      <div class="sidebar">
+          <div id="sidebar"></div>
+      </div>
+   </div>
+<button class="top-button" onclick="scrollToTop()">Back to Top</button>
+   
+      <div id="footer"></div>
+      
+   <script>
+     // Toggle menu visibility on smaller screens
+     function toggleMenu() {
+       const menu = document.querySelector('.menu');
+       menu.classList.toggle('show');
+     }
+     // Scroll to top function
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'  // Smooth scroll effect
+      });
+    }
+
+    // Show or hide the "Back to Top" button based on scroll position
+    window.onscroll = function() {
+      var topButton = document.querySelector('.top-button');
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        topButton.style.display = "block";  // Show button
+      } else {
+        topButton.style.display = "none";  // Hide button
+      }
+    };
+   
+    // Function to load external HTML into a specific element
+    function loadHTML(elementId, file) {
+      fetch(file)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById(elementId).innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error loading ' + file + ':', error);
+        });
+    }
+
+    window.onload = function() {
+      loadHTML('header', 'header.html');  // Load header
+      loadHTML('sidebar', 'sidebar.html'); // Load sidebar
+      loadHTML('footer', 'footer.html');  // Load footer
+    };
+  </script>
+</body>
+</html>   
