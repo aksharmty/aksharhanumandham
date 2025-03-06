@@ -1,4 +1,30 @@
-<h2>Terms and Conditions</h2>
+<!DOCTYPE html>
+<html lang="hi">
+<head>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4305348743992957"
+     crossorigin="anonymous"></script>     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='shortcut icon' href='logo.png' type='image/x-icon' />
+    <meta name="description" content="Terms and Conditions.">
+    <meta name="keywords" content="akshar, akshardham, akshar hanuman dham, hanuman dham,hanuman,hanuman chalisa">
+    <meta name="author" content="akshar hanuman dham">
+    <title>Terms and Conditions</title>
+   <LINK href="style.css" rel="stylesheet" type="text/css">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QS90E57647"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QS90E57647');
+</script>    
+</head>
+<body>
+    <div id="header"></div> 
+     <div class="container">
+         <div class="main-content">
+        <h1 style="text-align:center;">Terms and Conditions</h1>
 <b>Puja and Prayer</b><br>
 Puja and prayer is God's grace and I am the medium of divine grace only.<br>
 All prayer and puja provided without any certificate<br>
@@ -18,8 +44,63 @@ no cancellation <br>
 <br> 
 <HR style="border-top: 5px solid red;">
 Gurudev Raj Kumar<br>
+Akshar Hanuman Dham<br>
 J-34/209,West Sagar pur,<br>
 New Delhi. India.<br>
 Email : aksharhanumandham@gmail.com<br>
 Phone : +91 9213816442<br>
 For any kind of dispute, only Delhi Dwarka Court (India) will be valid.<br> 
+</div>
+      <!-- Sidebar -->
+      <div class="sidebar">
+          <div id="sidebar"></div>
+      </div>
+   </div>
+<button class="top-button" onclick="scrollToTop()">Back to Top</button>
+   
+      <div id="footer"></div>
+      
+   <script>
+     // Toggle menu visibility on smaller screens
+     function toggleMenu() {
+       const menu = document.querySelector('.menu');
+       menu.classList.toggle('show');
+     }
+     // Scroll to top function
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'  // Smooth scroll effect
+      });
+    }
+
+    // Show or hide the "Back to Top" button based on scroll position
+    window.onscroll = function() {
+      var topButton = document.querySelector('.top-button');
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        topButton.style.display = "block";  // Show button
+      } else {
+        topButton.style.display = "none";  // Hide button
+      }
+    };
+   
+    // Function to load external HTML into a specific element
+    function loadHTML(elementId, file) {
+      fetch(file)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById(elementId).innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error loading ' + file + ':', error);
+        });
+    }
+
+    window.onload = function() {
+      loadHTML('header', 'header.html');  // Load header
+      loadHTML('sidebar', 'sidebar.html'); // Load sidebar
+      loadHTML('footer', 'footer.html');  // Load footer
+    };
+  </script>
+</body>
+</html>
