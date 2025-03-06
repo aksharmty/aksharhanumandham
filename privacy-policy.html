@@ -1,4 +1,30 @@
-<h2>Privacy Policy</h2>
+<!DOCTYPE html>
+<html lang="hi">
+<head>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4305348743992957"
+     crossorigin="anonymous"></script>     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='shortcut icon' href='logo.png' type='image/x-icon' />
+    <meta name="description" content="Privacy Policy">
+    <meta name="keywords" content="akshar, akshardham, akshar hanuman dham, hanuman dham,hanuman,hanuman chalisa">
+    <meta name="author" content="akshar hanuman dham">
+    <title>Privacy Policy</title>
+   <LINK href="style.css" rel="stylesheet" type="text/css">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QS90E57647"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QS90E57647');
+</script>    
+</head>
+<body>
+    <div id="header"></div> 
+     <div class="container">
+         <div class="main-content">
+        <h1 style="text-align:center;">Privacy Policy</h1>
 
             <h2>Refund Policy</h2>
             <P>We have no refund policy. So before any payment clears your doubts on aksharhanumandham@gmail.com</P>
@@ -20,3 +46,57 @@
 <p><strong>Opt-Out</strong></p>
 <p>When appropriate, users of the Site are given the opportunity to (i) opt-out of receiving communications from us, (ii) remove their information from our database, or (iii) elect to no longer receive services from us. If you wish to opt-out of receiving further communications, please <a href="contact.php">contact us</a>.<br /><br /><br /></p>
 <br><br>
+</div>
+      <!-- Sidebar -->
+      <div class="sidebar">
+          <div id="sidebar"></div>
+      </div>
+   </div>
+<button class="top-button" onclick="scrollToTop()">Back to Top</button>
+   
+      <div id="footer"></div>
+      
+   <script>
+     // Toggle menu visibility on smaller screens
+     function toggleMenu() {
+       const menu = document.querySelector('.menu');
+       menu.classList.toggle('show');
+     }
+     // Scroll to top function
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'  // Smooth scroll effect
+      });
+    }
+
+    // Show or hide the "Back to Top" button based on scroll position
+    window.onscroll = function() {
+      var topButton = document.querySelector('.top-button');
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        topButton.style.display = "block";  // Show button
+      } else {
+        topButton.style.display = "none";  // Hide button
+      }
+    };
+   
+    // Function to load external HTML into a specific element
+    function loadHTML(elementId, file) {
+      fetch(file)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById(elementId).innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error loading ' + file + ':', error);
+        });
+    }
+
+    window.onload = function() {
+      loadHTML('header', 'header.html');  // Load header
+      loadHTML('sidebar', 'sidebar.html'); // Load sidebar
+      loadHTML('footer', 'footer.html');  // Load footer
+    };
+  </script>
+</body>
+</html>
