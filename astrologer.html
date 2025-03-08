@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4305348743992957"
+     crossorigin="anonymous"></script>     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='shortcut icon' href='logo.png' type='image/x-icon' />
+    <!-- Meta Title -->
+  <meta id="metaTitle" name="title" content="">
+
+  <!-- Meta Description -->
+  <meta id="metaDescription" name="description" content="">
+  <meta id="metakeywords" name="keywords" content="">
+  <meta name="author" content="akshar hanuman dham">
+  <meta property="og:image" content="logo.png">
+ <LINK href="style.css" rel="stylesheet" type="text/css">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QS90E57647"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QS90E57647');
+</script>
+</head>
+<body>
+       <div id="header"></div> 
+     <div class="container">
+      <!-- Main Content -->
+      <div class="main-content">
+        <h1 style="text-align:center;">Astrology Services</h1>
+        <p style="text-align:center;">Find the best astrologer for all your needs</p>
+       <div id="content">
+    <h1>Loading...</h1>
+  </div>
+   
+<br>
+    <h3>Contact Us Today</h3>
+Akshar Hanuman Dham<br>  
+Address: J-34/209, Gali No.4,<br>  
+West Sagarpur, New Delhi-110046, India<br>  
+Phone: <a href="tel:+919213816442">+91 9213816442</a><br>
+<a target="_blank" href="https://api.whatsapp.com/send?phone=919213816442">Contact on Whatsapp</a> <br>
+<a target="_blank" href="https://t.me/aksharmty">Contact on Telegram</a> <br><br>  
+
+      </div>
+      <!-- Sidebar -->
+      <div class="sidebar">
+          <div id="sidebar"></div>
+      </div>
+   </div>
+<button class="top-button" onclick="scrollToTop()">Back to Top</button>
+   
+      <div id="footer"></div>
+      
+   <script>
+     // Toggle menu visibility on smaller screens
+     function toggleMenu() {
+       const menu = document.querySelector('.menu');
+       menu.classList.toggle('show');
+     }
+     // Scroll to top function
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'  // Smooth scroll effect
+      });
+    }
+
+    // Show or hide the "Back to Top" button based on scroll position
+    window.onscroll = function() {
+      var topButton = document.querySelector('.top-button');
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        topButton.style.display = "block";  // Show button
+      } else {
+        topButton.style.display = "none";  // Hide button
+      }
+    };
+   
+    // Function to load external HTML into a specific element
+    function loadHTML(elementId, file) {
+      fetch(file)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById(elementId).innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error loading ' + file + ':', error);
+        });
+    }
+
+    window.onload = function() {
+      loadHTML('header', 'header.html');  // Load header
+      loadHTML('sidebar', 'sidebar.html'); // Load sidebar
+      loadHTML('footer', 'footer.html');  // Load footer
+  //
+   // Extract the query parameter after '?id='
+      const urlParams = new URLSearchParams(window.location.search);
+      const loc = urlParams.get('loc');  // Get value of 'id' from the URL
+
+      // If 'id' exists in the URL, clean it up and update titles
+      if (loc && loc.trim() !== "") {
+        // Replace hyphens with spaces and remove special characters
+        const cleanedId = loc.replace(/-/g, ' ').replace(/[^a-zA-Z0-9 ]/g, '').trim();
+
+        // Set the webpage title dynamically
+        document.title = `Astrologer - ${cleanedId}`;
+
+        // Set the meta title dynamically
+        document.getElementById('metaTitle').setAttribute('content', `Astrologer in ${cleanedId}`);
+
+        // Set the meta description dynamically
+        document.getElementById('metaDescription').setAttribute('content', `Explore the best astrologer services in ${cleanedId}. Get accurate astrology predictions and guidance for your future.`);
+document.getElementById('metakeywords').setAttribute('content','Astrologer in ${cleanedId}, Phone Astrology Consultation, Horoscope Reading Online, Astrology Services in ${cleanedId}, Online Astrologer Consultation, Vedic Astrologer in ${cleanedId}, Astrology Consultation Over the Phone, Expert Astrologer Services, Personalized Astrology Advice, Astrological Predictions in ${cleanedId}, Astrology for Career, Love and Relationship Astrology in ${cleanedId}, Astrology for Financial Guidance, Trusted Astrologer in ${cleanedId}, Spiritual Guidance via Astrology');
+        // Add content to the page dynamically based on 'id'
+        document.getElementById('content').innerHTML = `
+          <h2>Astrologer in ${cleanedId} – Horoscope Consultations on Phone</h2>
+          <p>Discover insights into your life with the best astrologers in ${cleanedId}. Get guidance and predictions about your future, career, relationships, and more. We offer astrology services tailored to your specific needs.</p>
+            <h2>Why Choose Our Astrology Services?</h2>
+            <p>We provide a wide range of astrology services that cater to different aspects of your life. Whether you're looking for guidance in your career, love life, or health, our astrologers in ${cleanedId} offer deep insights based on the stars and planetary alignments. Here's what we specialize in:</p>
+
+          <h3>Career Readings</h3>
+          <p>Get detailed astrology-based career predictions to guide your professional journey. Find out the best career paths for your astrological sign, and learn when is the right time for career advancement.</p>
+
+          <h3>Love & Relationship</h3>
+              <p>Discover the most compatible matches and advice on how to enhance your relationships. Whether you’re single or in a relationship, our astrologers can help you understand your love life better.</p>
+
+          <h3>Health Insights</h3>
+              <p>Astrology can offer helpful insights into your health and well-being. Learn which areas of your life require more attention, and how to maintain balance for a healthier lifestyle.</p>
+
+        `;
+      } else {
+        // Fallback if no 'id' is found in the URL or if it's empty
+        document.title = 'Astrologer - Services';
+        document.getElementById('metaTitle').setAttribute('content', 'Astrologer Services');
+        document.getElementById('metaDescription').setAttribute('content', 'Find the best astrologer services for all your needs.');
+  document.getElementById('metakeywords').setAttribute('content','Astrologer, Phone Astrology Consultation, Horoscope Reading Online, Astrology Services, Online Astrologer Consultation, Vedic Astrologer, Astrology Consultation Over the Phone, Expert Astrologer Services, Personalized Astrology Advice, Astrological Predictions Delhi, Astrology for Career, Love and Relationship Astrology, Astrology for Financial Guidance, Trusted Astrologer, Spiritual Guidance via Astrology');
+        // Display default astrologer services
+        document.getElementById('content').innerHTML = `
+          <p>We provide top astrology services to help guide you in your life’s journey. Whether it's love, career, or health, our expert astrologers are here to help.</p>
+
+          <h2>Why Choose Our Astrology Services?</h2>
+            <p>Our astrologers offer a variety of services to suit every need. From career advice to relationship compatibility, we use ancient wisdom and modern astrology to guide you through life.</p>
+     
+          <h3>Career Readings</h3>
+              <p>Get insights into your career path based on your birth chart. We’ll guide you to the best opportunities based on your astrological sign.</p>
+         
+          <h3>Love & Relationship</h3>
+              <p>Understand your love life better. Get insights into your compatibility with others and find out how to strengthen your relationships.</p>
+     
+          <h3>Health Insights</h3>
+              <p>Astrology can shed light on areas of your health that need attention. Learn about your strengths and vulnerabilities based on your astrological profile.</p>
+        `;
+      }
+    };
+  </script>
+</body>
+</html>
