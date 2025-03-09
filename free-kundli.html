@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4305348743992957"
+     crossorigin="anonymous"></script>     
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='shortcut icon' href='logo.png' type='image/x-icon' />
+  <title>Make Free Kundli</title>
+        <meta name="description" content="Make Free Kundli and print or download your janm kundli">
+    <meta name="keywords" content="Mantra Chanting, Physical Ailments, Mental Peace, Mental Prosperity, No Side Effects, Akshar Hanuman Dham">
+    <meta property="og:title" content="Mantra Chanting for a Healthy Life - Akshar Hanuman Dham">
+    <meta property="og:description" content="Get solutions for your physical and mental issues through mantra chanting at Akshar Hanuman Dham. Contact us today!">
+    <meta property="og:image" content="akshar-hanuman-dham.png">
+  <LINK href="style.css" rel="stylesheet" type="text/css">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QS90E57647"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QS90E57647');
+</script>
+</head>
+<body>
+<div id="header"></div> 
+     <div class="container">
+      <!-- Main Content -->
+      <div class="main-content">
+          <h1 style="text-align:center;">Make Free Kundli</h1>
+Kundli is an astrological chart prepared on the basis of the exact date of birth and time, and place of birth of an individual person. In the kundli representing the positions of the Planets, astrological aspects and sensitive angles at the time of an event, such as the moment of a person's birth.
+<br>
+            <script type="text/javascript" src="https://kundli.click/widget-embed-js?wid=e21cde479bae027bb408e2fdb9f8e430"></script>
+<div id="kundliwidgetid"></div>
+           </div>
+      <!-- Sidebar -->
+      <div class="sidebar">
+          <div id="sidebar"></div>
+      </div>
+   </div>
+<button class="top-button" onclick="scrollToTop()">Back to Top</button>
+   
+      <div id="footer"></div>
+      
+   <script>
+     // Toggle menu visibility on smaller screens
+     function toggleMenu() {
+       const menu = document.querySelector('.menu');
+       menu.classList.toggle('show');
+     }
+     // Scroll to top function
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'  // Smooth scroll effect
+      });
+    }
+
+    // Show or hide the "Back to Top" button based on scroll position
+    window.onscroll = function() {
+      var topButton = document.querySelector('.top-button');
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        topButton.style.display = "block";  // Show button
+      } else {
+        topButton.style.display = "none";  // Hide button
+      }
+    };
+   
+    // Function to load external HTML into a specific element
+    function loadHTML(elementId, file) {
+      fetch(file)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById(elementId).innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error loading ' + file + ':', error);
+        });
+    }
+
+    window.onload = function() {
+      loadHTML('header', 'header.html');  // Load header
+      loadHTML('sidebar', 'sidebar.html'); // Load sidebar
+      loadHTML('footer', 'footer.html');  // Load footer
+    };
+  </script>
+</body>
+</html>
