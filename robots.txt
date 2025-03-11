@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /hanuuman-chalisa.mp3
+Disallow: /1.html
