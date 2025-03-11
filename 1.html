@@ -13,22 +13,22 @@
     
     <!-- Loop count input -->
     <label for="loopCount">Loop Count:</label>
-    <input type="number" id="loopCount" value="1" min="1" max="10">
+    <input type="number" id="loopCount" value="1" min="1" max="108">
     
     <br>
     
     <!-- Start, Pause, Stop, and Restart buttons -->
     <button id="startButton">Start</button>
     <button id="pauseButton">Pause</button>
-    <button id="stopButton">Stop</button>
     <button id="restartButton">Restart</button>
-    
+    <button id="stopButton">Stop</button>
     <br>
     
     <!-- Status display -->
     <p id="status">Status: Not Playing</p>
     <p id="playCount">Played: 0 times</p>
-    <p id="remainingCount">Remaining Loops: 0</p>
+    <p id="remainingCount">Remaining Loops: 108</p>
+    <p id="completionMessage" style="color: green; font-weight: bold; display: none;">Song completed the maximum loop count!</p>
     
     <script>
         const audioPlayer = document.getElementById('audioPlayer');
@@ -40,9 +40,10 @@
         const statusDisplay = document.getElementById('status');
         const playCountDisplay = document.getElementById('playCount');
         const remainingCountDisplay = document.getElementById('remainingCount');
+        const completionMessage = document.getElementById('completionMessage');
         
         let loopCounter = 0;
-        let maxLoops = 1;
+        let maxLoops = 108;  // Maximum number of repetitions (108 times)
         let isPlaying = false;
         let isPaused = false;
         let pausePosition = 0; // Track the position where the audio was paused
@@ -59,7 +60,8 @@
             
             audioPlayer.play();
             
-            // Update status
+            // Hide the completion message and update the status
+            completionMessage.style.display = "none";
             updateStatus();
         });
         
@@ -112,6 +114,8 @@
                 audioPlayer.pause();
                 audioPlayer.currentTime = 0; // Reset to the beginning
                 updateStatus();
+                // Show completion message after maximum loops are reached
+                completionMessage.style.display = "block";
             }
         });
         
