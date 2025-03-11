@@ -45,6 +45,7 @@
         let maxLoops = 1;
         let isPlaying = false;
         let isPaused = false;
+        let pausePosition = 0; // Track the position where the audio was paused
         
         // Start button functionality
         startButton.addEventListener('click', () => {
@@ -66,6 +67,7 @@
         pauseButton.addEventListener('click', () => {
             if (isPlaying) {
                 audioPlayer.pause();
+                pausePosition = audioPlayer.currentTime; // Save the pause position
                 isPlaying = false;
                 isPaused = true;
                 updateStatus();
@@ -83,13 +85,15 @@
             updateStatus();
         });
         
-        // Restart button functionality
+        // Restart button functionality (resume from the paused position)
         restartButton.addEventListener('click', () => {
-            audioPlayer.currentTime = 0; // Reset the audio to the start
-            audioPlayer.play(); // Start playing from the beginning
+            if (isPaused) {
+                audioPlayer.currentTime = pausePosition; // Resume from the paused position
+            }
+            audioPlayer.play(); // Start/resume playing
             isPlaying = true;
             isPaused = false;
-            loopCounter = 0; // Reset loop counter
+            loopCounter = 0; // Reset loop counter when restarting
             updateStatus();
         });
         
