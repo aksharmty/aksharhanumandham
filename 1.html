@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Loop Example</title>
+</head>
+<body>
+    <h1>Audio Loop Control</h1>
+    
+    <!-- Audio player -->
+    <audio id="audioPlayer" src="hanuman-chalisa.mp3" preload="auto"></audio>
+    
+    <!-- Loop count input -->
+    <label for="loopCount">Loop Count:</label>
+    <input type="number" id="loopCount" value="1" min="1" max="10">
+    
+    <br>
+    
+    <!-- Start, Stop, and Pause buttons -->
+    <button id="startButton">Start</button>
+    <button id="pauseButton">Pause</button>
+    <button id="stopButton">Stop</button>
+    
+    <br>
+    
+    <!-- Status display -->
+    <p id="status">Status: Not Playing</p>
+    <p id="playCount">Played: 0 times</p>
+    <p id="remainingCount">Remaining Loops: 0</p>
+    
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const startButton = document.getElementById('startButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const stopButton = document.getElementById('stopButton');
+        const loopCountInput = document.getElementById('loopCount');
+        const statusDisplay = document.getElementById('status');
+        const playCountDisplay = document.getElementById('playCount');
+        const remainingCountDisplay = document.getElementById('remainingCount');
+        
+        let loopCounter = 0;
+        let maxLoops = 1;
+        let isPlaying = false;
+        let isPaused = false;
+        
+        // Start button functionality
+        startButton.addEventListener('click', () => {
+            if (isPlaying) return; // Prevent starting the audio if it's already playing
+            
+            maxLoops = parseInt(loopCountInput.value, 10); // Get the desired number of loops
+            loopCounter = 0; // Reset the loop counter
+            isPlaying = true;
+            isPaused = false;
+            audioPlayer.loop = false; // Disable the default loop behavior
+            
+            audioPlayer.play();
+            
+            // Update status
+            updateStatus();
+        });
+        
+        // Pause button functionality
+        pauseButton.addEventListener('click', () => {
+            if (isPlaying) {
+                audioPlayer.pause();
+                isPlaying = false;
+                isPaused = true;
+                updateStatus();
+            }
+        });
+        
+        // Stop button functionality
+        stopButton.addEventListener('click', () => {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0; // Reset audio to start
+            isPlaying = false;
+            isPaused = false;
+            
+            // Update status
+            updateStatus();
+        });
+        
+        // Event listener for when the audio ends
+        audioPlayer.addEventListener('ended', () => {
+            loopCounter++;
+            
+            // Update status after each loop
+            updateStatus();
+            
+            // If the audio has looped the required number of times, stop it
+            if (loopCounter < maxLoops) {
+                audioPlayer.play(); // Play again if not yet reached max loops
+            } else {
+                isPlaying = false;
+                audioPlayer.pause();
+                audioPlayer.currentTime = 0; // Reset to the beginning
+                updateStatus();
+            }
+        });
+        
+        // Function to update status display
+        function updateStatus() {
+            // Display the status (whether playing, paused, or not playing)
+            if (isPlaying) {
+                statusDisplay.textContent = 'Status: Playing';
+            } else if (isPaused) {
+                statusDisplay.textContent = 'Status: Paused';
+            } else {
+                statusDisplay.textContent = 'Status: Not Playing';
+            }
+            
+            // Display how many times the audio has played
+            playCountDisplay.textContent = `Played: ${loopCounter} times`;
+            
+            // Display the remaining loops
+            remainingCountDisplay.textContent = `Remaining Loops: ${maxLoops - loopCounter}`;
+        }
+    </script>
+</body>
+</html>
