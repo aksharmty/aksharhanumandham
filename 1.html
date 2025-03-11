@@ -17,10 +17,11 @@
     
     <br>
     
-    <!-- Start, Stop, and Pause buttons -->
+    <!-- Start, Pause, Stop, and Restart buttons -->
     <button id="startButton">Start</button>
     <button id="pauseButton">Pause</button>
     <button id="stopButton">Stop</button>
+    <button id="restartButton">Restart</button>
     
     <br>
     
@@ -34,6 +35,7 @@
         const startButton = document.getElementById('startButton');
         const pauseButton = document.getElementById('pauseButton');
         const stopButton = document.getElementById('stopButton');
+        const restartButton = document.getElementById('restartButton');
         const loopCountInput = document.getElementById('loopCount');
         const statusDisplay = document.getElementById('status');
         const playCountDisplay = document.getElementById('playCount');
@@ -78,6 +80,16 @@
             isPaused = false;
             
             // Update status
+            updateStatus();
+        });
+        
+        // Restart button functionality
+        restartButton.addEventListener('click', () => {
+            audioPlayer.currentTime = 0; // Reset the audio to the start
+            audioPlayer.play(); // Start playing from the beginning
+            isPlaying = true;
+            isPaused = false;
+            loopCounter = 0; // Reset loop counter
             updateStatus();
         });
         
