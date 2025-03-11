@@ -21,11 +21,21 @@
     <button id="startButton">Start</button>
     <button id="stopButton">Stop</button>
     
+    <br>
+    
+    <!-- Status display -->
+    <p id="status">Status: Not Playing</p>
+    <p id="playCount">Played: 0 times</p>
+    <p id="remainingCount">Remaining Loops: 0</p>
+    
     <script>
         const audioPlayer = document.getElementById('audioPlayer');
         const startButton = document.getElementById('startButton');
         const stopButton = document.getElementById('stopButton');
         const loopCountInput = document.getElementById('loopCount');
+        const statusDisplay = document.getElementById('status');
+        const playCountDisplay = document.getElementById('playCount');
+        const remainingCountDisplay = document.getElementById('remainingCount');
         
         let loopCounter = 0;
         let maxLoops = 1;
@@ -41,6 +51,9 @@
             audioPlayer.loop = false; // Disable the default loop behavior
             
             audioPlayer.play();
+            
+            // Update status
+            updateStatus();
         });
         
         // Stop button functionality
@@ -48,11 +61,17 @@
             audioPlayer.pause();
             audioPlayer.currentTime = 0; // Reset audio to start
             isPlaying = false;
+            
+            // Update status
+            updateStatus();
         });
         
         // Event listener for when the audio ends
         audioPlayer.addEventListener('ended', () => {
             loopCounter++;
+            
+            // Update status after each loop
+            updateStatus();
             
             // If the audio has looped the required number of times, stop it
             if (loopCounter < maxLoops) {
@@ -61,8 +80,21 @@
                 isPlaying = false;
                 audioPlayer.pause();
                 audioPlayer.currentTime = 0; // Reset to the beginning
+                updateStatus();
             }
         });
+        
+        // Function to update status display
+        function updateStatus() {
+            // Display the status (whether playing or paused)
+            statusDisplay.textContent = isPlaying ? 'Status: Playing' : 'Status: Not Playing';
+            
+            // Display how many times the audio has played
+            playCountDisplay.textContent = `Played: ${loopCounter} times`;
+            
+            // Display the remaining loops
+            remainingCountDisplay.textContent = `Remaining Loops: ${maxLoops - loopCounter}`;
+        }
     </script>
 </body>
 </html>
