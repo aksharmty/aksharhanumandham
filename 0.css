@@ -137,7 +137,7 @@ html {
 }
 
 .btn-green {
-  background:  #73AD21;
+  background:  #73AD21; color:#fff;
   border: none;
   border-radius: 0;
   padding: 10px 25px;
@@ -154,7 +154,7 @@ html {
   border: 1px solid #1f76bd;
 }
 .btn-yellow {
-  background:  #ffff00;
+  background:  #960003; color:#fff;
   border: none;
   border-radius: 0;
   padding: 10px 25px;
@@ -167,8 +167,8 @@ html {
 }
 .btn-yellow:hover {
   background: #fff;
-  color: #ffff00;
-  border: 1px solid #ffff00;
+  color: #1f76bd;
+  border: 1px solid #1f76bd;
 }
 .top-button {
             position: fixed;
