@@ -1,12 +1,12 @@
-<!-- Sponsored Ad Block -->
-  <div id="sponsored-ad" style="position: relative; margin-bottom: 20px;">
-    <a id="sponsor-link" href="#" target="_blank">
-      <img id="sponsor-banner" src="" alt="Sponsored Ad" style="width: 100%; border-radius: 8px;">
-    </a>
-    <div style="position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.6); color: white; font-size: 12px; padding: 2px 6px; border-radius: 4px;">
-      Sponsored Ad
-    </div>
+<div id="sponsored-ad" style="position: relative; margin-bottom: 20px;">
+  <a id="sponsor-link" href="#" target="_blank">
+    <img id="sponsor-banner" src="" alt="Sponsored Ad" style="width: 100%; border-radius: 8px;">
+  </a>
+  <div style="position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.6); font-size: 12px; padding: 2px 6px; border-radius: 4px;">
+    <a href="advertise.php" style="text-decoration: none; color: white;">Sponsored Ad</a>
   </div>
+</div>
+
 <iframe data-aa='2383092' src='//acceptable.a-ads.com/2383092' style='border:0px; padding:0; width:100%; height:250px; overflow:hidden; background-color: transparent;'></iframe>
 <!-- sidebar.html -->
 <aside>
@@ -38,24 +38,3 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script><br>
 </aside>
-<!-- Ad Loading Script -->
-<script>
-  fetch('data/ads.json')
-    .then(response => response.json())
-    .then(ads => {
-      const today = new Date();
-      const validAds = ads.filter(ad => new Date(ad.expires) >= today);
-
-      if (validAds.length > 0) {
-        const randomAd = validAds[Math.floor(Math.random() * validAds.length)];
-        document.getElementById('sponsor-banner').src = randomAd.image;
-        document.getElementById('sponsor-link').href = randomAd.link;
-      } else {
-        document.getElementById('sponsored-ad').style.display = 'none';
-      }
-    })
-    .catch(err => {
-      console.error('Ad loading error:', err);
-      document.getElementById('sponsored-ad').style.display = 'none';
-    });
-</script>
