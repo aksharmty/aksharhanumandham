@@ -40,6 +40,12 @@ html {
     right: 0;
     padding: 1px 10px 1px 10px;
 }
+.myads {
+  border: 5px outset red;
+  background-color: lightblue;    
+  text-align: center;
+  max-height:110px;
+}
 .header{width:100%;height:115px; background-color:#f1c233; padding:10px;margin-top:0px;border-top: 5px solid red;}
 .logo{width:170px; height:50px;}
 .navbar{width:100%;height:50px;background-color:#758209; margin-top:10px;overflow: hidden;}
