@@ -7,7 +7,7 @@ function loadHTML(id, file, callback) {
     });
 }
 
-loadHTML("header", "header.html");
+loadHTML("header", "headers.html");
 loadHTML("menu", "menu.html");
 loadHTML("sidebar", "sidebar.html", () => {
     const script = document.createElement('script');
