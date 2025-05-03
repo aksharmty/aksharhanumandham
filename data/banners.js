@@ -1,18 +1,18 @@
 const banners = [
   {
-        img: 'https://aksharhanumandham.in/only-blessing.png',
-        link: 'https://aksharhanumandham.in/',
-    expiry: '2025-05-21T23:59:59'
+        img: 'https://aksharhanumandham.in/ads/shubham.png',
+        link: 'https://wa.me/918750685516',
+    expiry: '2100-01-01T23:59:59'
   },
   {
-      img: 'https://aksharhanumandham.in/ads/banner2.jpg',
-      link: 'https://aksharhanumandham.in/home.html',
-    expiry: '2025-05-22T23:59:59'
+      img: 'https://aksharhanumandham.in/ads/adquash.png',
+      link: 'https://adquash.com',
+    expiry: '2100-01-01T23:59:59'
   },
   {
-      img: 'https://aksharhanumandham.in/ads/banner3.jpg',
-      link: 'https://aksharhanumandham.in/contact.html',
-    expiry: '2025-05-05T12:00:00'
+      img: 'https://aksharhanumandham.in/ads/advertise.png',
+      link: 'https://aksharhanumandham.in/advertise.html',
+    expiry: '2100-01-01T12:00:00'
   }
 ];
 
