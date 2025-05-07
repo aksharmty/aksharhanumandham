@@ -10,6 +10,11 @@ const banners = [
     expiry: '2100-01-01T23:59:59'
   },
   {
+      img: 'https://aksharhanumandham.in/ads/free-santaan.png',
+      link: 'https://aksharhanumandham.in',
+    expiry: '2100-01-01T23:59:59'
+  },
+  {
       img: 'https://aksharhanumandham.in/ads/advertise.png',
       link: 'https://aksharhanumandham.in/advertise.html',
     expiry: '2100-01-01T12:00:00'
