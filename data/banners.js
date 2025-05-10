@@ -41,8 +41,8 @@ const banners = [
       <a href="advertise.html" target="_blank"
          style="
           position: absolute;
-          top: 8px;
-          right: 8px;
+          top: 1px;
+          right: 1px;
           background: rgba(0, 0, 0, 0.6);
           color: #fff;
           font-size: 12px;
