@@ -31,7 +31,7 @@
         <div class="header">
             <img src="https://aksharhanumandham.in/hanuman-logo.png" alt="Logo"> <!-- Replace with your logo -->
         </div>
-        <div id="nav"></div>
+        <div id="menu"></div>
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -119,10 +119,6 @@ West Sagarpur, New Delhi-110046, India<br>
         });
     }
 
-    window.onload = function() {
-      loadHTML('nav', 'nav.html');  // Load header
-      loadHTML('sidebar', 'sidebar.html'); // Load sidebar
-      loadHTML('footer', 'footer.html');  // Load footer
   //
    // Extract the query parameter after '?id='
       const urlParams = new URLSearchParams(window.location.search);
@@ -184,6 +180,8 @@ document.getElementById('metakeywords').setAttribute('content','Astrologer in ${
       }
     };
     </script>
+    <script src="js/loader.js"></script>
+    
 </body>
 
 </html>
