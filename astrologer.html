@@ -118,7 +118,12 @@ West Sagarpur, New Delhi-110046, India<br>
           console.error('Error loading ' + file + ':', error);
         });
     }
-
+window.onload = function() {
+      loadHTML('header', 'header.html');  // Load header
+      loadHTML('sidebar', 'menu.html'); // Load sidebar
+    loadHTML('sidebar', 'sidebar.html'); // Load sidebar
+      loadHTML('footer', 'footer.html');  // Load footer
+    };
   //
    // Extract the query parameter after '?id='
       const urlParams = new URLSearchParams(window.location.search);
@@ -180,7 +185,6 @@ document.getElementById('metakeywords').setAttribute('content','Astrologer in ${
       }
     };
     </script>    
-    <script src="js/loader.js"></script>
 </body>
 
 </html>
