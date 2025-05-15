@@ -129,66 +129,54 @@ loadHTML("sidebar", "sidebar.html", () => {
 loadHTML("footer", "footer.html");
     };
   //
-   // Extract the query parameter after '?id='
-      const urlParams = new URLSearchParams(window.location.search);
-      const loc = urlParams.get('loc');  // Get value of 'id' from the URL
+  // Extract loc from query string
+            const urlParams = new URLSearchParams(window.location.search);
+            const loc = urlParams.get('loc');
 
-      // If 'id' exists in the URL, clean it up and update titles
-      if (loc && loc.trim() !== "") {
-        // Replace hyphens with spaces and remove special characters
-        const cleanedId = loc.replace(/-/g, ' ').replace(/[^a-zA-Z0-9 ]/g, '').trim();
+            if (loc && loc.trim() !== "") {
+                const cleanedId = loc.replace(/-/g, ' ').replace(/[^a-zA-Z0-9 ]/g, '').trim();
 
-        // Set the webpage title dynamically
-        document.title = `Astrologer - ${cleanedId}`;
+                document.title = `Astrologer - ${cleanedId}`;
+                document.getElementById('metaTitle').setAttribute('content', `Astrologer in ${cleanedId}`);
+                document.getElementById('metaDescription').setAttribute('content',
+                    `Explore the best astrologer services in ${cleanedId}. Get accurate astrology predictions and guidance for your future.`);
+                document.getElementById('metakeywords').setAttribute('content',
+                    `Astrologer in ${cleanedId}, Phone Astrology Consultation, Horoscope Reading Online, Astrology Services in ${cleanedId}, Online Astrologer Consultation, Vedic Astrologer in ${cleanedId}, Astrology Consultation Over the Phone, Expert Astrologer Services, Personalized Astrology Advice, Astrological Predictions in ${cleanedId}, Astrology for Career, Love and Relationship Astrology in ${cleanedId}, Astrology for Financial Guidance, Trusted Astrologer in ${cleanedId}, Spiritual Guidance via Astrology`);
 
-        // Set the meta title dynamically
-        document.getElementById('metaTitle').setAttribute('content', `Astrologer in ${cleanedId}`);
+                document.getElementById('content').innerHTML = `
+                    <h2>Astrologer in ${cleanedId} – Horoscope Consultations on Phone</h2>
+                    <p>Discover insights into your life with the best astrologers in ${cleanedId}. Get guidance and predictions about your future, career, relationships, and more. We offer astrology services tailored to your specific needs.</p>
+                    <h2>Why Choose Our Astrology Services?</h2>
+                    <p>We provide a wide range of astrology services that cater to different aspects of your life. Whether you're looking for guidance in your career, love life, or health, our astrologers in ${cleanedId} offer deep insights based on the stars and planetary alignments.</p>
+                    <h3>Career Readings</h3>
+                    <p>Get detailed astrology-based career predictions to guide your professional journey.</p>
+                    <h3>Love & Relationship</h3>
+                    <p>Discover the most compatible matches and get relationship advice.</p>
+                    <h3>Health Insights</h3>
+                    <p>Astrology can offer helpful insights into your health and well-being.</p>
+                `;
+            } else {
+                document.title = 'Astrologer - Services';
+                document.getElementById('metaTitle').setAttribute('content', 'Astrologer Services');
+                document.getElementById('metaDescription').setAttribute('content',
+                    'Find the best astrologer services for all your needs.');
+                document.getElementById('metakeywords').setAttribute('content',
+                    'Astrologer, Phone Astrology Consultation, Horoscope Reading Online, Astrology Services, Online Astrologer Consultation, Vedic Astrologer, Astrology Consultation Over the Phone, Expert Astrologer Services, Personalized Astrology Advice, Astrological Predictions Delhi, Astrology for Career, Love and Relationship Astrology, Astrology for Financial Guidance, Trusted Astrologer, Spiritual Guidance via Astrology');
 
-        // Set the meta description dynamically
-        document.getElementById('metaDescription').setAttribute('content', `Explore the best astrologer services in ${cleanedId}. Get accurate astrology predictions and guidance for your future.`);
-document.getElementById('metakeywords').setAttribute('content','Astrologer in ${cleanedId}, Phone Astrology Consultation, Horoscope Reading Online, Astrology Services in ${cleanedId}, Online Astrologer Consultation, Vedic Astrologer in ${cleanedId}, Astrology Consultation Over the Phone, Expert Astrologer Services, Personalized Astrology Advice, Astrological Predictions in ${cleanedId}, Astrology for Career, Love and Relationship Astrology in ${cleanedId}, Astrology for Financial Guidance, Trusted Astrologer in ${cleanedId}, Spiritual Guidance via Astrology');
-        // Add content to the page dynamically based on 'id'
-        document.getElementById('content').innerHTML = `
-          <h2>Astrologer in ${cleanedId} – Horoscope Consultations on Phone</h2>
-          <p>Discover insights into your life with the best astrologers in ${cleanedId}. Get guidance and predictions about your future, career, relationships, and more. We offer astrology services tailored to your specific needs.</p>
-            <h2>Why Choose Our Astrology Services?</h2>
-            <p>We provide a wide range of astrology services that cater to different aspects of your life. Whether you're looking for guidance in your career, love life, or health, our astrologers in ${cleanedId} offer deep insights based on the stars and planetary alignments. Here's what we specialize in:</p>
-
-          <h3>Career Readings</h3>
-          <p>Get detailed astrology-based career predictions to guide your professional journey. Find out the best career paths for your astrological sign, and learn when is the right time for career advancement.</p>
-
-          <h3>Love & Relationship</h3>
-              <p>Discover the most compatible matches and advice on how to enhance your relationships. Whether you’re single or in a relationship, our astrologers can help you understand your love life better.</p>
-
-          <h3>Health Insights</h3>
-              <p>Astrology can offer helpful insights into your health and well-being. Learn which areas of your life require more attention, and how to maintain balance for a healthier lifestyle.</p>
-
-        `;
-      } else {
-        // Fallback if no 'id' is found in the URL or if it's empty
-        document.title = 'Astrologer - Services';
-        document.getElementById('metaTitle').setAttribute('content', 'Astrologer Services');
-        document.getElementById('metaDescription').setAttribute('content', 'Find the best astrologer services for all your needs.');
-  document.getElementById('metakeywords').setAttribute('content','Astrologer, Phone Astrology Consultation, Horoscope Reading Online, Astrology Services, Online Astrologer Consultation, Vedic Astrologer, Astrology Consultation Over the Phone, Expert Astrologer Services, Personalized Astrology Advice, Astrological Predictions Delhi, Astrology for Career, Love and Relationship Astrology, Astrology for Financial Guidance, Trusted Astrologer, Spiritual Guidance via Astrology');
-        // Display default astrologer services
-        document.getElementById('content').innerHTML = `
-          <p>We provide top astrology services to help guide you in your life’s journey. Whether it's love, career, or health, our expert astrologers are here to help.</p>
-
-          <h2>Why Choose Our Astrology Services?</h2>
-            <p>Our astrologers offer a variety of services to suit every need. From career advice to relationship compatibility, we use ancient wisdom and modern astrology to guide you through life.</p>
-     
-          <h3>Career Readings</h3>
-              <p>Get insights into your career path based on your birth chart. We’ll guide you to the best opportunities based on your astrological sign.</p>
-         
-          <h3>Love & Relationship</h3>
-              <p>Understand your love life better. Get insights into your compatibility with others and find out how to strengthen your relationships.</p>
-     
-          <h3>Health Insights</h3>
-              <p>Astrology can shed light on areas of your health that need attention. Learn about your strengths and vulnerabilities based on your astrological profile.</p>
-        `;
-      }
-    };
-    </script>    
+                document.getElementById('content').innerHTML = `
+                    <p>We provide top astrology services to help guide you in your life’s journey. Whether it's love, career, or health, our expert astrologers are here to help.</p>
+                    <h2>Why Choose Our Astrology Services?</h2>
+                    <p>Our astrologers offer a variety of services to suit every need. From career advice to relationship compatibility, we use ancient wisdom and modern astrology to guide you through life.</p>
+                    <h3>Career Readings</h3>
+                    <p>Get insights into your career path based on your birth chart.</p>
+                    <h3>Love & Relationship</h3>
+                    <p>Understand your love life better and strengthen relationships.</p>
+                    <h3>Health Insights</h3>
+                    <p>Learn about your health strengths and vulnerabilities with astrology.</p>
+                `;
+            }
+        });
+    </script>
 </body>
 
 </html>
