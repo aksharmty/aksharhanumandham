@@ -98,16 +98,19 @@
             };
 
             // Function to load external HTML
-            function loadHTML(elementId, file) {
-                fetch(file)
-                    .then(response => response.text())
-                    .then(data => {
-                        document.getElementById(elementId).innerHTML = data;
-                    })
-                    .catch(error => {
-                        console.error('Error loading ' + file + ':', error);
-                    });
+           function loadHTML(elementId, file, callback) {
+    fetch(file)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+            if (typeof callback === "function") {
+                callback();
             }
+        })
+        .catch(error => {
+            console.error('Error loading ' + file + ':', error);
+        });
+}
 
             // Load external sections
 //            loadHTML('header', 'https://aksharhanumandham.in/headers.html');
