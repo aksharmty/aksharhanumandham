@@ -123,18 +123,20 @@
   color: white;
 }
 .fixed-note {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #fff8e1;
-      border-top: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-      font-size: 14px;
-      color: #444;
-      z-index: 999;
-    }
+  position: fixed;
+  bottom: 0px; /* thoda upar ho background ke saath */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff8e1;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #444;
+  border-radius: 4px;
+  z-index: 999;
+  white-space: nowrap;
+}
+
   </style>
 </head>
 <body>
