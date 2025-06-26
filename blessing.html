@@ -43,7 +43,19 @@
       opacity: 0.95;
      cursor: pointer;
     transition: transform 0.2s ease;
-    }
+    width: 64px;
+  height: 64px;
+}
+
+/* 👇 Mobile Specific Adjustments (screen ≤ 480px) */
+@media screen and (max-width: 480px) {
+  .video img.play-button {
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
     iframe.map {
       border: 0;
       width: 100%;
@@ -94,16 +106,16 @@
                     <h1 style="text-align:center;font-size:24px;">Reimprint your life with blessings.</h1>
                      <div class="video">
     <a data-fancybox href="https://www.youtube.com/embed/YL631FmKnNo?rel=0" title="Blessings Video">
-      <img src="https://aksharhanumandham.in/healing.png" alt="Blessings Thumbnail" style="width:100%; border-radius:10px;">
+      <img src="https://aksharhanumandham.in/healing.png" alt="Blessings Thumbnail" style="width:100%; height:300px; border-radius:10px;">
       <img class="play-button" src="https://img.icons8.com/ios-filled/100/000000/play-button-circled.png" alt="Play">
     </a>
   </div> 
                   <center><p>कई बार समस्या या बीमारी <strong>दवा से नहीं — दुआ से ठीक होती है।</strong></p>
-    <p>आशीर्वाद सहायक है: ✔ स्वास्थ्य ✔ समृद्धि ✔ आंतरिक शांति</p>
-    <p><strong>More blessings, more possibilities.</strong></p>  </center>  
+    <p>आशीर्वाद सहायक है: <br>✔ स्वास्थ्य ✔ समृद्धि ✔ आंतरिक शांति</p>
+    <p><strong>More blessings, more possibilities.</strong></p>  
   
     <p>यहाँ केवल 5 मिनट की <strong>प्रार्थना और आशीर्वाद</strong> से समाधान का प्रयास किया जाता है।</p>
-    <p>🌿 <strong>दक्षिणा : 500 रुपये प्रति सत्र</strong></p>
+    <p>🌿 <strong>दक्षिणा : 500 रुपये प्रति सत्र</strong></p></center>
     <div class="contact-line">
             <a href="https://wa.me/919213816442" target="_blank" class="btn btn-green">📲 WhatsApp करें</a>
             <a href="tel:+919213816442" class="btn btn-blue">📞 Call करें</a>
