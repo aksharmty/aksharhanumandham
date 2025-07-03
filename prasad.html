@@ -3,6 +3,14 @@
 <head>    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4305348743992957"
      crossorigin="anonymous"></script>     
     <meta charset="UTF-8">
+     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+     <style>
+    input, select, button { padding: 10px; width: 100%; margin-top: 10px; }
+    img { margin-top: 20px; width: 200px; }
+    .section { margin-bottom: 20px; }
+    .message { color: green; font-size: 14px; margin-top: 10px; }
+    .error { color: red; font-size: 13px; }
+  </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel='shortcut icon' href='logo.png' type='image/x-icon' />
      <!-- Meta Tags for SEO -->
@@ -71,21 +79,124 @@
 
     <h2>Order Your Sweet Makhana Prasad</h2>
         <p>Get your share of Sweet Makhana Prasad, blessed and packaged with divine blessings from Akshar Hanuman Dham.</p>
-        <form action="#" method="POST">
-            <label for="name">Full Name:</label><br>
-            <input type="text" id="name" name="name"><br><br>
-            <label for="phone">Phone Number:</label><br>
-            <input type="text" id="phone" name="phone"><br><br>
-            <label for="address">Address:</label><br>
-            <input type="text" id="address" name="address"><br><br>
-            <label for="quantity">Quantity (in boxes):</label><br>
-            <input type="number" id="quantity" name="quantity" min="1"><br><br>
-            <!-- label for="special-request">Special Request (Optional):</label><br>
-            <textarea id="special-request" name="special-request"></textarea><br><br -->
-           <label for="quantity">Price in INR :</label><br>
-            <input type="number" id="price" name="price" value="500" readonly><br><br>
-            <input type="submit" value="Place Order">
-        </form>
+     <div class="section">
+    <label>Your Name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+    <div id="nameError" class="error"></div>
+
+    <label>Phone Number:</label>
+    <input type="tel" id="phone" placeholder="Enter 10-digit phone number">
+    <div id="phoneError" class="error"></div>
+
+    <label>Quantity:</label>
+    <select id="quantity" onchange="updateAll()">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+    </select>
+
+    <p><strong>Total:</strong> ₹<span id="total">500</span></p>
+  </div>
+
+  <div class="section" id="qrcode-section">
+    <div id="qrcode"></div>
+    <button onclick="downloadQR()">Download QR Code</button>
+    <div class="message" id="scanTip" style="display:none;">📱 Scan this QR code using any UPI app like GPay, PhonePe, Paytm, etc.</div>
+  </div>
+
+  <div class="section">
+    <button onclick="sendWhatsApp()">Send on WhatsApp</button>
+    <button onclick="sendEmail()">Send Email</button>
+    <button onclick="window.print()">Print</button>
+  </div> 
+         <script>
+    const basePrice = 500;
+    const upiID = "921381642@oksbi"; // Replace with your UPI ID
+    const receiverName = "Akshar Hanuman Dham";
+    const upiNote = "Prasad Seva";
+
+    function validateForm() {
+      let valid = true;
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const nameError = document.getElementById('nameError');
+      const phoneError = document.getElementById('phoneError');
+
+      nameError.textContent = '';
+      phoneError.textContent = '';
+
+      if (name.length < 2) {
+        nameError.textContent = 'Please enter a valid name (at least 2 letters)';
+        valid = false;
+      }
+
+      const phoneRegex = /^[0-9]{10}$/;
+      if (!phoneRegex.test(phone)) {
+        phoneError.textContent = 'Please enter a valid 10-digit phone number';
+        valid = false;
+      }
+
+      return valid;
+    }
+
+    function updateAll() {
+      const isValid = validateForm();
+      if (!isValid) return;
+
+      const name = document.getElementById('name').value.trim();
+      const qty = parseInt(document.getElementById('quantity').value);
+      const total = basePrice * qty;
+      document.getElementById('total').textContent = total;
+
+      const upiURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(receiverName)}&am=${total}&tn=${encodeURIComponent(upiNote)}`;
+      
+      QRCode.toDataURL(upiURL, function (err, url) {
+        if (err) return console.error(err);
+        document.getElementById('qrcode').innerHTML = `<img id="qr-img" src="${url}">`;
+        document.getElementById('scanTip').style.display = 'block';
+      });
+    }
+
+    function downloadQR() {
+      const qrImg = document.getElementById('qr-img');
+      if (!qrImg) return alert("QR code not generated yet.");
+      const link = document.createElement('a');
+      link.href = qrImg.src;
+      link.download = 'GooglePay_upi.png';
+      link.click();
+    }
+
+    function sendWhatsApp() {
+      if (!validateForm()) return;
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const qty = document.getElementById('quantity').value;
+      const total = basePrice * qty;
+
+      const msg = `🙏 Prasad Order\nName: ${name}\nPhone: ${phone}\nQuantity: ${qty}\nTotal: ₹${total}`;
+      const url = `https://wa.me/919213816442?text=${encodeURIComponent(msg)}`;
+      window.open(url, "_blank");
+    }
+
+    function sendEmail() {
+      if (!validateForm()) return;
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const qty = document.getElementById('quantity').value;
+      const total = basePrice * qty;
+
+      const subject = "🙏 Prasad Order Request";
+      const body = `Name: ${name}\nPhone: ${phone}\nQuantity: ${qty}\nTotal: ₹${total}`;
+      const mailto = `mailto:sakhihosting@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.open(mailto, "_blank");
+    }
+
+    // Run on load once
+    window.onload = updateAll;
+  </script>
      <h2>About Akshar Hanuman Dham</h2>
         <p>Akshar Hanuman Dham is a sacred temple dedicated to Lord Hanuman...</p>
 </div>
