@@ -3,14 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Sweet Makhana Prasad - Akshar Hanuman Dham</title>
-  
-  <!-- Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4305348743992957" crossorigin="anonymous"></script>
-  
-  <!-- SEO Meta Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Order Sweet Makhana Prasad from Akshar Hanuman Dham, a divine offering blessed by Lord Hanuman.">
   <meta name="keywords" content="Sweet Makhana, Prasad, Akshar Hanuman Dham, Order Prasad, Divine Blessings, Hanuman Temple">
   <meta name="author" content="Akshar Hanuman Dham">
+
   <meta property="og:title" content="Sweet Makhana Prasad - Akshar Hanuman Dham">
   <meta property="og:description" content="Order Sweet Makhana Prasad from Akshar Hanuman Dham, blessed by Lord Hanuman.">
   <meta property="og:image" content="prasad.jpg">
@@ -19,64 +16,42 @@
   <meta name="twitter:description" content="Order Sweet Makhana Prasad from Akshar Hanuman Dham.">
   <meta name="twitter:image" content="prasad.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- QR Code -->
+
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+  <link href="0.css" rel="stylesheet" type="text/css">
   <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
-  <!-- Styles -->
   <style>
-    input, select, textarea, button {
-      padding: 10px;
-      width: 100%;
-      margin-top: 10px;
-    }
+    input, select, textarea, button { padding: 10px; width: 100%; margin-top: 10px; }
     img { margin-top: 20px; width: 200px; }
     .section { margin-bottom: 20px; }
     .message { color: green; font-size: 14px; margin-top: 10px; }
     .error { color: red; font-size: 13px; }
-    .note {
-      background: #f2f2f2;
-      padding: 10px;
-      font-size: 14px;
-      margin-top: 10px;
-      border-left: 4px solid green;
-    }
+    .note { background: #f2f2f2; padding: 10px; font-size: 14px; margin-top: 10px; border-left: 4px solid green; }
     .top-button {
-      position: fixed;
-      bottom: 30px;
-      right: 20px;
-      background-color: #ff6600;
-      color: white;
+      position: fixed; bottom: 30px; right: 20px;
+      background-color: #ff6600; color: white;
+      border: none; padding: 10px 20px;
+      border-radius: 30px; cursor: pointer;
+      display: none; box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 999; width: auto;
+    }
+    #successGuide button {
+      margin: 10px 10px 0 0;
+      padding: 8px 14px;
       border: none;
-      padding: 10px 20px;
-      border-radius: 30px;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
       cursor: pointer;
-      display: none;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      z-index: 999;
-      width: auto;
     }
   </style>
 
-  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
-  <link href="0.css" rel="stylesheet" type="text/css">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QS90E57647"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-QS90E57647');
-  </script>
 </head>
-
 <body>
-
   <div class="col-md-12">
     <div class="header">
-      <img src="https://aksharhanumandham.in/hanuman-logo.png" alt="Logo">
+      <img src="hanuman-logo.png" alt="Logo">
     </div>
     <div id="menu"></div>
   </div>
@@ -85,10 +60,7 @@
     <div class="col-md-12">
       <div class="left-panel">
         <center>
-          <ins class="adsbygoogle"
-            style="display:inline-block;width:728px;height:90px;"
-            data-ad-client="ca-pub-4305348743992957"
-            data-ad-slot="1924539816"></ins>
+          <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px;" data-ad-client="ca-pub-4305348743992957" data-ad-slot="1924539816"></ins>
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </center>
 
@@ -102,14 +74,11 @@
         <p>This special prasad is prepared with purity and is perfect for nourishing both the body and soul.</p>
 
         <h2>Order Your Sweet Makhana Prasad</h2>
-        <p>Get your share of Sweet Makhana Prasad, blessed and packaged with divine blessings from Akshar Hanuman Dham.</p>
-        
         <div class="note">
           📦 <strong>Each Prasad Box contains:</strong> 50 gm Sweet Makhana <br>
           🗓️ Prasad is sent the <strong>next day after daily prayer</strong>.
         </div>
 
-        <!-- Form -->
         <div class="section">
           <label>Your Name:</label>
           <input type="text" id="name" placeholder="Enter your name">
@@ -135,34 +104,30 @@
           <p><strong>Total:</strong> ₹<span id="total">500</span></p>
         </div>
 
+        <div class="note" id="successGuide" style="display:none;"></div>
+
         <div class="section" id="qrcode-section">
           <div id="qrcode"></div>
           <button onclick="downloadQR()">Download QR Code</button>
-          <div class="message" id="scanTip" style="display:none;">📱 Scan the QR code using any UPI app like GPay, PhonePe, Paytm, etc.</div>
-        </div>
-
-        <div class="section">
-          <button onclick="sendWhatsApp()">Send on WhatsApp</button>
-          <button onclick="sendEmail()">Send Email</button>
-          <button onclick="window.print()">Print</button>
+          <div class="message" id="scanTip" style="display:none;">📱 UPI ऐप से स्कैन करके भुगतान करें।</div>
         </div>
 
         <h2>About Akshar Hanuman Dham</h2>
         <p>Akshar Hanuman Dham is a sacred temple dedicated to Lord Hanuman...</p>
       </div>
-   
-  <div class="right-panel0">
-    <div id="sidebar"></div>
+
+      <div class="right-panel0">
+        <div id="sidebar"></div>
+      </div>
+    </div>
   </div>
- </div>
-  </div>
+
   <div class="footer">
     <div id="footer"></div>
   </div>
 
   <button class="top-button" onclick="scrollToTop()">Back to Top</button>
 
-  <!-- Loader & Scripts -->
   <script>
     const basePrice = 500;
     const upiID = "9213816442@oksbi";
@@ -174,20 +139,23 @@
       const name = document.getElementById('name').value.trim();
       const phone = document.getElementById('phone').value.trim();
       const address = document.getElementById('address').value.trim();
+
       document.getElementById('nameError').textContent = '';
       document.getElementById('phoneError').textContent = '';
       document.getElementById('addressError').textContent = '';
 
       if (name.length < 2) {
-        document.getElementById('nameError').textContent = 'Please enter a valid name (at least 2 letters)';
+        document.getElementById('nameError').textContent = 'Please enter a valid name';
         valid = false;
       }
+
       if (!/^[0-9]{10}$/.test(phone)) {
-        document.getElementById('phoneError').textContent = 'Please enter a valid 10-digit phone number';
+        document.getElementById('phoneError').textContent = 'Enter valid 10-digit phone';
         valid = false;
       }
+
       if (address.length < 10) {
-        document.getElementById('addressError').textContent = 'Please enter full address (at least 10 characters)';
+        document.getElementById('addressError').textContent = 'Address too short';
         valid = false;
       }
 
@@ -197,9 +165,32 @@
 
     function updateAll() {
       if (!validateForm()) return;
+
       const qty = parseInt(document.getElementById('quantity').value);
       const total = basePrice * qty;
       document.getElementById('total').textContent = total;
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+
+      const msgHTML = `
+        ✅ <strong>आपका विवरण सफलतापूर्वक भरा गया है:</strong><br><br>
+        🙍‍♂️ <b>नाम:</b> ${name}<br>
+        📞 <b>मोबाइल:</b> ${phone}<br>
+        🏠 <b>पता:</b> ${address}<br>
+        📦 <b>Quantity:</b> ${qty} Box(es)<br>
+        💰 <b>कुल राशि:</b> ₹${total}<br><br>
+        🔁 नीचे दिए गए QR को स्कैन करें और UPI ऐप से भुगतान करें।<br><br>
+        ✉️ भुगतान के बाद Order भेजें:
+        <div style="margin-top:10px;">
+          <button onclick="sendWhatsApp()">📩 व्हाट्सऐप भेजें</button>
+          <button onclick="sendEmail()">📧 ईमेल भेजें</button>
+        </div>
+      `;
+      document.getElementById('successGuide').innerHTML = msgHTML;
+      document.getElementById('successGuide').style.display = 'block';
+
       const upiURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(receiverName)}&am=${total}&tn=${encodeURIComponent(upiNote)}`;
       QRCode.toDataURL(upiURL, function (err, url) {
         if (err) return console.error(err);
@@ -213,12 +204,11 @@
       if (!qrImg) return alert("QR code not generated yet.");
       const link = document.createElement('a');
       link.href = qrImg.src;
-      link.download = 'GooglePay_upi.png';
+      link.download = 'prasad_qr.png';
       link.click();
     }
 
     function sendWhatsApp() {
-      if (!validateForm()) return;
       const name = document.getElementById('name').value.trim();
       const phone = document.getElementById('phone').value.trim();
       const address = document.getElementById('address').value.trim();
@@ -230,7 +220,6 @@
     }
 
     function sendEmail() {
-      if (!validateForm()) return;
       const name = document.getElementById('name').value.trim();
       const phone = document.getElementById('phone').value.trim();
       const address = document.getElementById('address').value.trim();
@@ -242,35 +231,25 @@
       window.open(mailto, "_blank");
     }
 
-    window.onload = () => {
-      updateAll();
-      ['name', 'phone', 'address'].forEach(id => {
-        document.getElementById(id).addEventListener('input', () => {
-          validateForm();
-          updateAll();
-        });
-      });
-    };
-
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     window.onscroll = function () {
-      var topButton = document.querySelector('.top-button');
-      topButton.style.display = (window.scrollY > 100) ? "block" : "none";
+      const topButton = document.querySelector('.top-button');
+      topButton.style.display = (document.documentElement.scrollTop > 100) ? "block" : "none";
     };
 
-    function loadHTML(elementId, file) {
-      fetch(file)
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById(elementId).innerHTML = data;
-        })
-        .catch(error => console.error('Error loading ' + file + ':', error));
-    }
+    window.onload = () => {
+      ['name', 'phone', 'address'].forEach(id => {
+        document.getElementById(id).addEventListener('input', () => {
+          const valid = validateForm();
+          if (valid) updateAll();
+        });
+      });
+    };
   </script>
-  <script src="js/loader.js"></script>
 
+  <script src="js/loader.js"></script>
 </body>
 </html>
