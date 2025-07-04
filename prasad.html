@@ -191,7 +191,7 @@
       document.getElementById('successGuide').innerHTML = msgHTML;
       document.getElementById('successGuide').style.display = 'block';
 
-      const upiURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(receiverName)}&am=${total}&tn=${encodeURIComponent(upiNote)}`;
+      const upiURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(receiverName)}&am=${total}&tn=${encodeURIComponent(upiNote)}&cu=INR`;
       QRCode.toDataURL(upiURL, function (err, url) {
         if (err) return console.error(err);
         document.getElementById('qrcode').innerHTML = `<img id="qr-img" src="${url}">`;
