@@ -1,4 +1,29 @@
 const banners = [
+   {
+        img: 'https://m.media-amazon.com/images/I/71-H331HNcS._SY425_.jpg',
+        link: 'https://www.amazon.in/dp/B095J3TKBB?tag=rajkumar06322-21',
+    expiry: '2100-01-01T23:59:59'
+  },
+   {
+        img: 'https://m.media-amazon.com/images/I/819uYlraOML._SY425_.jpg',
+        link: 'https://www.amazon.in/dp/B09FK66917?tag=rajkumar06322-21',
+    expiry: '2100-01-01T23:59:59'
+  },
+   {
+        img: 'https://m.media-amazon.com/images/I/71d4dtqTHWL._SY425_.jpg',
+        link: 'https://www.amazon.in/dp/B09JVY4VMR?tag=rajkumar06322-21',
+    expiry: '2100-01-01T23:59:59'
+  },
+   {
+        img: 'https://m.media-amazon.com/images/I/41doe8uNvhS._SY445_SX342_ControlCacheEqualizer_.jpg',
+        link: 'https://www.amazon.in/dp/B096X73C74?tag=rajkumar06322-21',
+    expiry: '2100-01-01T23:59:59'
+  },
+   {
+        img: 'https://m.media-amazon.com/images/I/71M856s7nwL._SY425_.jpg',
+        link: 'https://www.amazon.in/dp/B0D1PM6PWP?tag=rajkumar06322-21',
+    expiry: '2100-01-01T23:59:59'
+  },
   {
         img: 'https://aksharhanumandham.in/ads/shubham.png',
         link: 'https://wa.me/918750685516',
