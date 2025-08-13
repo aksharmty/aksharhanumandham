@@ -76,11 +76,45 @@
                     </div>
 
                     <div class="col-md-12">
-                        <h2>Send following Details:</h2>
+<h2>Send following Details:</h2>
+<form id="whatsappForm" onsubmit="sendToWhatsApp(); return false;">
+    <label>नाम:</label><br>
+    <input type="text" id="name" name="name" placeholder="अपना नाम लिखें" required><br><br>
+
+    <label>ईमेल:</label><br>
+    <input type="email" id="email" name="email" placeholder="अपना ईमेल लिखें" required><br><br>
+
+    <label>फ़ोन नंबर:</label><br>
+    <input type="tel" id="phone" name="phone" placeholder="अपना मोबाइल नंबर लिखें" required><br><br>
+
+    <label>नोट:</label><br>
+    <textarea id="note" name="note" placeholder="कोई अतिरिक्त जानकारी..." rows="3"></textarea><br><br>
+
+    <p style="color:red; font-weight:bold;">कृपया भुगतान का स्क्रीनशॉट व्हाट्सऐप में भेजें</p>
+
+    <button type="submit" class="btn btn-green">WhatsApp पर भेजें</button>
+</form>
+
+<script>
+function sendToWhatsApp() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    var note = document.getElementById("note").value;
+
+    var message = `नमस्ते, मेरी रजिस्ट्रेशन डिटेल्स:\n\nनाम: ${name}\nईमेल: ${email}\nफोन: ${phone}\nनोट: ${note}\n\n(कृपया भुगतान का स्क्रीनशॉट देखें)`;
+
+    var whatsappURL = `https://api.whatsapp.com/send?phone=919213816442&text=${encodeURIComponent(message)}`;
+    window.open(whatsappURL, "_blank");
+}
+</script>
+</div>
+<div class="col-md-12">
+                        <!-- h2>Send following Details:</h2>
                         &#9679; <b>नाम</b><br/>
                         &#9679; <b>ईमेल पता</b><br/>
                         &#9679; <b>फ़ोन नंबर</b><br/>
-                        &#9679; <b>पेमेंट का स्क्रीनशॉट</b><br/><br/>
+                        &#9679; <b>पेमेंट का स्क्रीनशॉट</b><br/><br/ -->
                     
                         <h3>Bank Deposit :</h3>
                         <b>SBI BANK DETAILS:</b><br>
