@@ -87,8 +87,8 @@
     <label>फ़ोन नंबर:</label><br>
     <input type="tel" id="phone" name="phone" placeholder="अपना मोबाइल नंबर लिखें" required><br><br>
 
-    <label>नोट:</label><br>
-    <textarea id="note" name="note" placeholder="कोई अतिरिक्त जानकारी..." rows="3"></textarea><br><br>
+    <label>Date & Time:</label><br>
+    <input type="text" id="date" name="date" value="Date: 16-08-2025, Time: 8 PM" readonly><br><br>
 
     <p style="color:red; font-weight:bold;">कृपया भुगतान का स्क्रीनशॉट व्हाट्सऐप में भेजें</p>
 
@@ -97,12 +97,12 @@
 
 <script>
 function sendToWhatsApp() {
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var phone = document.getElementById("phone").value;
-    var note = document.getElementById("note").value;
+    var name = document.getElementById("name").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var phone = document.getElementById("phone").value.trim();
+    var date = document.getElementById("date").value;
 
-    var message = `नमस्ते, मेरी रजिस्ट्रेशन डिटेल्स:\n\nनाम: ${name}\nईमेल: ${email}\nफोन: ${phone}\nनोट: ${note}\n\n(कृपया भुगतान का स्क्रीनशॉट देखें)`;
+    var message = `नमस्ते, मेरी रजिस्ट्रेशन डिटेल्स (Online Class: जानें सपनों को साकार करने की कला):\n\nनाम: ${name}\nईमेल: ${email}\nफोन: ${phone}\nDate & Time: ${date}\n\n(कृपया भुगतान का स्क्रीनशॉट भेजें)`;
 
     var whatsappURL = `https://api.whatsapp.com/send?phone=919213816442&text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, "_blank");
