@@ -34,6 +34,11 @@ const banners = [
         link: 'https://wa.me/918750685516',
     expiry: '2100-01-01T23:59:59'
   },
+      {
+         img: 'https://m.media-amazon.com/images/I/51iCgqihd8L._UF1000,1000_QL80_FMwebp_.jpg',
+         link: 'https://www.amazon.in/dp/B0FQ6GFLLT?tag=rajkumar06322-21',
+         expiry: '2100-01-01T23:59:59'
+      },
   {
       img: 'https://aksharhanumandham.in/ads/adquash.png',
       link: 'https://adquash.com',
