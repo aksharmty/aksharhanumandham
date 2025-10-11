@@ -64,6 +64,11 @@ const banners = [
       link: 'https://aksharhanumandham.in',
     expiry: '2100-01-01T23:59:59'
   },
+   {
+      img: 'https://aksharhanumandham.in/ads/hit.png',
+      link: 'https://compoundtrading.adquash.com/bot.html',
+    expiry: '2100-01-01T23:59:59'
+  },
   {
       img: 'https://aksharhanumandham.in/ads/advertise.png',
       link: 'https://aksharhanumandham.in/advertise.html',
