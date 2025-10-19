@@ -71,7 +71,7 @@ const banners = [
   },
    {
       img: 'https://aksharhanumandham.in/ads/hypnosis.png',
-      link: 'https://wa.me/919213816442?text=hypnosis+course',
+      link: 'https://approveme.adquash.com/hypnosis-course.html',
     expiry: '2100-01-01T23:59:59'
   },
   {
