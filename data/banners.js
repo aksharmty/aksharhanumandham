@@ -69,6 +69,11 @@ const banners = [
       link: 'https://compoundtrading.adquash.com/bot.html',
     expiry: '2100-01-01T23:59:59'
   },
+   {
+      img: 'https://aksharhanumandham.in/ads/hypnosis.png',
+      link: 'https://wa.me/919213816442?text=hypnosis+course',
+    expiry: '2100-01-01T23:59:59'
+  },
   {
       img: 'https://aksharhanumandham.in/ads/advertise.png',
       link: 'https://aksharhanumandham.in/advertise.html',
