@@ -71,7 +71,7 @@ const banners = [
   },
    {
       img: 'https://aksharhanumandham.in/ads/hypnosis.png',
-      link: 'https://approveme.adquash.com/hypnosis-course.html',
+      link: 'https://aksharmty.adquash.com/hypnosis-course.html',
     expiry: '2100-01-01T23:59:59'
   },
   {
@@ -98,7 +98,7 @@ const banners = [
       <a href="${banner.link}" target="_blank" style="display: block;">
         <img src="${banner.img}" alt="Banner" style="width:100%; max-height:250px; display:block;">
       </a>
-      <a href="advertise.html" target="_blank"
+      <a href="https://aksharhanumandham.in/advertise.html" target="_blank"
          style="
           position: absolute;
           top: 1px;
