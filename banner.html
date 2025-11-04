@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ad Banner</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  #banner-slot {
+    position: relative;
+    width: 100%;
+    max-height: 250px;
+    overflow: hidden;
+  }
+
+  #banner-slot img {
+    width: 100%;
+    max-height: 250px;
+    display: block;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  #banner-slot img.active {
+    opacity: 1;
+  }
+
+  .tag {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .wrapper {
+    position: relative;
+  }
+</style>
+</head>
+<body>
+<div id="banner-slot"></div>
+
+<!-- Load banner data -->
+<script src="data/ads.js"></script>
+
+<script>
+const REFRESH_INTERVAL = 30000; // 30 seconds
+let currentIndex = -1;
+
+function loadBanner(index) {
+  const now = new Date();
+  const validBanners = (window.banners || []).filter(b => new Date(b.expiry) > now);
+  const slot = document.getElementById('banner-slot');
+
+  if (validBanners.length === 0) {
+    slot.innerHTML = '<p>No active banners.</p>';
+    return;
+  }
+
+  if (index === undefined) {
+    index = Math.floor(Math.random() * validBanners.length);
+  }
+
+  const banner = validBanners[index];
+  const wrapper = document.createElement('div');
+  wrapper.className = 'wrapper';
+  wrapper.innerHTML = `
+    <a href="${banner.link}" target="_blank" rel="noopener">
+      <img src="${banner.img}" alt="Ad Banner" class="fade-img">
+    </a>
+    <a href="https://aksharhanumandham.in/advertise.html" class="tag" target="_blank">Sponsored Ad</a>
+  `;
+
+  slot.innerHTML = '';
+  slot.appendChild(wrapper);
+
+  // fade-in animation
+  const img = wrapper.querySelector('img');
+  setTimeout(() => img.classList.add('active'), 100);
+}
+
+function rotateBanner() {
+  const now = new Date();
+  const validBanners = (window.banners || []).filter(b => new Date(b.expiry) > now);
+  if (validBanners.length === 0) return;
+
+  currentIndex = (currentIndex + 1) % validBanners.length;
+  loadBanner(currentIndex);
+}
+
+// Load first banner immediately
+rotateBanner();
+
+// Change banner every 30 seconds
+setInterval(rotateBanner, REFRESH_INTERVAL);
+</script>
+</body>
+</html>
