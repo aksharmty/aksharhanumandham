@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Banner Test</title>
+<title>Akshar Hanumandham | Random Ad Banner</title>
+<meta http-equiv="Cache-Control" content="max-age=60">
 <style>
   body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background: #000;
   }
 
   #banner-slot {
@@ -15,7 +17,6 @@
     width: 100%;
     max-height: 250px;
     overflow: hidden;
-    background: #000;
   }
 
   #banner-slot img {
@@ -53,28 +54,43 @@
   <p style="color:white;text-align:center;padding:100px 0;">Loading banner...</p>
 </div>
 
-<script src="data/banners.js"></script>
+<!-- ✅ Correct JS path + cache-buster -->
+<script src="data/banners.js?v=1.2"></script>
+
 <script>
 (function() {
   const slot = document.getElementById('banner-slot');
-  const REFRESH_INTERVAL = 15000; // 15 seconds for testing
-  let currentIndex = -1;
+  const REFRESH_INTERVAL = 20000; // 20 seconds
+  let lastIndex = -1;
 
-  function loadNextBanner() {
-    const now = new Date();
-    const validBanners = (window.banners || []).filter(b => new Date(b.expiry) > now);
+  function getValidBanners() {
+    const arr = window.banners || [];
+    return arr.filter(b => {
+      const exp = new Date(b.expiry);
+      return exp.toString() !== "Invalid Date" && exp.getTime() > Date.now();
+    });
+  }
+
+  function loadRandomBanner() {
+    const validBanners = getValidBanners();
     if (!validBanners.length) {
-      slot.innerHTML = "<p style='color:white;text-align:center;'>No active banners</p>";
+      slot.innerHTML = "<p style='color:white;text-align:center;'>No active banners (check data/banners.js)</p>";
       return;
     }
 
-    currentIndex = (currentIndex + 1) % validBanners.length;
-    const banner = validBanners[currentIndex];
+    // Random index, avoid repeating same banner consecutively
+    let index;
+    do {
+      index = Math.floor(Math.random() * validBanners.length);
+    } while (index === lastIndex && validBanners.length > 1);
+    lastIndex = index;
+
+    const banner = validBanners[index];
 
     slot.innerHTML = `
       <div class="wrapper">
-        <a href="${banner.link}" target="_blank">
-          <img src="${banner.img}" alt="Banner">
+        <a href="${banner.link}" target="_blank" rel="noopener">
+          <img src="${banner.img}?t=${Date.now()}" alt="Banner">
         </a>
         <a href="https://aksharhanumandham.in/advertise.html" class="tag" target="_blank">Sponsored Ad</a>
       </div>
@@ -85,8 +101,9 @@
   }
 
   window.addEventListener("load", function() {
-    loadNextBanner();
-    setInterval(loadNextBanner, REFRESH_INTERVAL);
+    console.log("Loaded banners:", window.banners);
+    loadRandomBanner();
+    setInterval(loadRandomBanner, REFRESH_INTERVAL);
   });
 })();
 </script>
