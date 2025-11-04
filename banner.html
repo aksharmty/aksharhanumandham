@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Ad Banner</title>
+<title>Banner Test</title>
 <style>
   body {
     margin: 0;
@@ -15,6 +15,7 @@
     width: 100%;
     max-height: 250px;
     overflow: hidden;
+    background: #000;
   }
 
   #banner-slot img {
@@ -31,12 +32,12 @@
 
   .tag {
     position: absolute;
-    top: 2px;
-    right: 2px;
+    top: 4px;
+    right: 4px;
     background: rgba(0,0,0,0.6);
     color: white;
     font-size: 12px;
-    padding: 2px 6px;
+    padding: 3px 6px;
     border-radius: 4px;
     text-decoration: none;
   }
@@ -47,61 +48,47 @@
 </style>
 </head>
 <body>
-<div id="banner-slot"></div>
 
-<!-- Load banner data -->
+<div id="banner-slot">
+  <p style="color:white;text-align:center;padding:100px 0;">Loading banner...</p>
+</div>
+
 <script src="data/banners.js"></script>
-
 <script>
-const REFRESH_INTERVAL = 30000; // 30 seconds
-let currentIndex = -1;
-
-function loadBanner(index) {
-  const now = new Date();
-  const validBanners = (window.banners || []).filter(b => new Date(b.expiry) > now);
+(function() {
   const slot = document.getElementById('banner-slot');
+  const REFRESH_INTERVAL = 15000; // 15 seconds for testing
+  let currentIndex = -1;
 
-  if (validBanners.length === 0) {
-    slot.innerHTML = '<p>No active banners.</p>';
-    return;
+  function loadNextBanner() {
+    const now = new Date();
+    const validBanners = (window.banners || []).filter(b => new Date(b.expiry) > now);
+    if (!validBanners.length) {
+      slot.innerHTML = "<p style='color:white;text-align:center;'>No active banners</p>";
+      return;
+    }
+
+    currentIndex = (currentIndex + 1) % validBanners.length;
+    const banner = validBanners[currentIndex];
+
+    slot.innerHTML = `
+      <div class="wrapper">
+        <a href="${banner.link}" target="_blank">
+          <img src="${banner.img}" alt="Banner">
+        </a>
+        <a href="https://aksharhanumandham.in/advertise.html" class="tag" target="_blank">Sponsored Ad</a>
+      </div>
+    `;
+
+    const img = slot.querySelector("img");
+    img.onload = () => img.classList.add("active");
   }
 
-  if (index === undefined) {
-    index = Math.floor(Math.random() * validBanners.length);
-  }
-
-  const banner = validBanners[index];
-  const wrapper = document.createElement('div');
-  wrapper.className = 'wrapper';
-  wrapper.innerHTML = `
-    <a href="${banner.link}" target="_blank" rel="noopener">
-      <img src="${banner.img}" alt="Ad Banner" class="fade-img">
-    </a>
-    <a href="https://aksharhanumandham.in/advertise.html" class="tag" target="_blank">Sponsored Ad</a>
-  `;
-
-  slot.innerHTML = '';
-  slot.appendChild(wrapper);
-
-  // fade-in animation
-  const img = wrapper.querySelector('img');
-  setTimeout(() => img.classList.add('active'), 100);
-}
-
-function rotateBanner() {
-  const now = new Date();
-  const validBanners = (window.banners || []).filter(b => new Date(b.expiry) > now);
-  if (validBanners.length === 0) return;
-
-  currentIndex = (currentIndex + 1) % validBanners.length;
-  loadBanner(currentIndex);
-}
-
-// Load first banner immediately
-rotateBanner();
-
-// Change banner every 30 seconds
-setInterval(rotateBanner, REFRESH_INTERVAL);
+  window.addEventListener("load", function() {
+    loadNextBanner();
+    setInterval(loadNextBanner, REFRESH_INTERVAL);
+  });
+})();
 </script>
 </body>
 </html>
