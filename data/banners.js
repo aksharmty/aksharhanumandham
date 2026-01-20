@@ -74,6 +74,11 @@ const banners = [
       link: 'https://aksharmty.adquash.com/hypnosis-course.html',
     expiry: '2100-01-01T23:59:59'
   },
+    {
+        img: 'https://aksharhanumandham.in/ads/angel.jpg',
+        link: 'https://www.angelone.in/signup/register?referrer=RA16442GRF',
+        expiry: '2100-01-01T23:59:59'
+    },
   {
       img: 'https://aksharhanumandham.in/ads/advertise.png',
       link: 'https://aksharhanumandham.in/advertise.html',
