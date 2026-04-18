@@ -31,7 +31,7 @@ const banners = [
   },
   {
       img: 'https://aksharmty.github.io/aksharhanumandham/ads/manifest.jpeg',
-      link: 'https://approveme.adquash.com',
+      link: 'https://rajkumarspiritualhealing.adquash.com/workshop.html',
     expiry: '2100-01-01T23:59:59'
   }, 
    {
