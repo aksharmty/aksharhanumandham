@@ -79,7 +79,7 @@ const banners = [
         link: 'https://www.angelone.in/signup/register?referrer=RA16442GRF',
         expiry: '2100-01-01T23:59:59'
     },
-   { img: 'https://compoundtrading.adquash.com/kucoin.png',
+   { img: 'https://aksharhanumandham.in/kucoin.png',
     link: 'https://compoundtrading.adquash.com/kucoin-dca-bot.html',
    expiry: '2100-01-01T23:59:59' },
   {
