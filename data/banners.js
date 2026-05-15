@@ -34,16 +34,11 @@ const banners = [
       link: 'https://rajkumarspiritualhealing.adquash.com/workshop.html',
     expiry: '2100-01-01T23:59:59'
   }, 
-   {
-        img: 'https://aksharhanumandham.in/ads/shubham.png',
-        link: 'https://wa.me/918750685516',
-    expiry: '2100-01-01T23:59:59'
-  },
-      {
+  {
          img: 'https://m.media-amazon.com/images/I/51iCgqihd8L._UF1000,1000_QL80_FMwebp_.jpg',
          link: 'https://www.amazon.in/dp/B0FQ6GFLLT?tag=rajkumar0fbe-21',
          expiry: '2100-01-01T23:59:59'
-      },
+   },
    {
          img: 'https://m.media-amazon.com/images/I/61Jkutfp7oL._SY425_.jpg',
          link: 'https://www.amazon.in/dp/B0FRYBPLZW?tag=rajkumar0fbe-21',
@@ -64,22 +59,13 @@ const banners = [
       link: 'https://aksharhanumandham.in',
     expiry: '2100-01-01T23:59:59'
   },
-   {
-      img: 'https://aksharhanumandham.in/ads/hit.png',
-      link: 'https://compoundtrading.adquash.com/bot.html',
-    expiry: '2100-01-01T23:59:59'
-  },
-   {
+  {
       img: 'https://aksharhanumandham.in/ads/hypnosis.png',
       link: 'https://aksharmty.adquash.com/hypnosis-course.html',
     expiry: '2100-01-01T23:59:59'
   },
-    {
-        img: 'https://aksharhanumandham.in/ads/angel.jpg',
-        link: 'https://www.angelone.in/signup/register?referrer=RA16442GRF',
-        expiry: '2100-01-01T23:59:59'
-    },
-   { img: 'https://aksharhanumandham.in/ads/kucoin.png',
+  { 
+     img: 'https://aksharhanumandham.in/ads/kucoin.png',
     link: 'https://compoundtrading.adquash.com/kucoin-dca-bot.html',
    expiry: '2100-01-01T23:59:59' },
   {
