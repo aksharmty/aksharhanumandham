@@ -1,0 +1,267 @@
+<style>
+.support-box{
+    background:#fff8e1;
+    border:1px solid #f4c542;
+    border-radius:10px;
+    padding:15px;
+    text-align:center;
+    margin:15px 0;
+}
+
+.support-box h3{
+    margin-top:0;
+    color:#b8860b;
+}
+
+.support-btn,
+.crypto-btn{
+    border:0;
+    border-radius:5px;
+    padding:8px 14px;
+    margin:3px;
+    cursor:pointer;
+    color:#fff;
+    font-weight:bold;
+}
+
+.support-btn{
+    background:#0073aa;
+}
+
+.crypto-btn{
+    background:#6f42c1;
+}
+
+#qrbox{
+    display:none;
+    margin-top:15px;
+}
+
+#qrcode canvas,
+#qrcode img{
+    margin:auto;
+}
+
+.small{
+    font-size:13px;
+    color:#666;
+    line-height:1.7;
+}
+
+.upi-id{
+    font-weight:bold;
+    color:#000;
+}
+
+.copy-btn{
+    border:none;
+    background:#28a745;
+    color:#fff;
+    padding:4px 10px;
+    border-radius:4px;
+    cursor:pointer;
+    margin-left:5px;
+}
+</style>
+
+<div class="support-box">
+
+<h3>🙏 Support Akshar Hanuman Dham</h3>
+
+<p>
+यदि आपको यहाँ से प्रार्थना, आशीर्वाद,
+आध्यात्मिक मार्गदर्शन या सकारात्मक प्रेरणा मिली हो,
+तो अपनी श्रद्धानुसार सहयोग कर सकते हैं।
+</p>
+
+<button class="support-btn" onclick="pay(10)">₹10</button>
+<button class="support-btn" onclick="pay(20)">₹20</button>
+<button class="support-btn" onclick="pay(50)">₹50</button>
+<button class="support-btn" onclick="pay(100)">₹100</button>
+<button class="support-btn" onclick="pay(501)">₹501</button>
+<button class="support-btn" onclick="customAmount()">Custom</button>
+
+<div id="qrbox">
+
+<p id="payText"></p>
+
+<div id="qrcode"></div>
+
+<br>
+
+<div class="small">
+
+UPI ID:
+
+<span class="upi-id">
+9213816442@apl
+</span>
+
+<button class="copy-btn" onclick="copyUpi()">
+Copy
+</button>
+
+</div>
+
+</div>
+
+<br>
+
+<form action="https://legacy.coinpayments.net/index.php"
+method="post"
+target="_blank">
+
+<input type="hidden" name="cmd" value="_donate">
+<input type="hidden" name="reset" value="1">
+
+<input type="hidden"
+name="merchant"
+value="80fac8e50744f81c50912a923c7a05b2">
+
+<input type="hidden"
+name="currency"
+value="USD">
+
+<input type="hidden"
+name="item_name"
+value="Support Akshar Hanuman Dham">
+
+<input type="submit"
+class="crypto-btn"
+value="💎 Crypto Donation">
+
+</form>
+
+<br>
+
+<a href="/donate.html" class="btn btn-green">
+❤️ Donate Page
+</a>
+
+<div class="small">
+
+🙏 दक्षिणा पूर्णतः श्रद्धानुसार है
+
+<br><br>
+
+आपका सहयोग प्रार्थना सेवा,
+आध्यात्मिक कार्यक्रमों,
+वेबसाइट संचालन एवं
+Akshar Hanuman Dham की गतिविधियों को
+आगे बढ़ाने में सहायक होगा।
+
+<br><br>
+
+🔒 Secure UPI & Crypto Payments
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+
+<script>
+
+function pay(amount){
+
+    amount = parseInt(amount);
+
+    var upi =
+    "upi://pay?pa=9213816442@apl"
+    + "&pn=" + encodeURIComponent("Raj Kumar")
+    + "&am=" + amount
+    + "&cu=INR"
+    + "&tn=" + encodeURIComponent(
+    "Donate to Raj Kumar for Akshar Hanuman Dham"
+    );
+
+    var mobile =
+    /Android|iPhone|iPad|iPod/i.test(
+    navigator.userAgent
+    );
+
+    if(mobile){
+
+        window.location.href = upi;
+        return;
+
+    }
+
+    document.getElementById("qrbox").style.display="block";
+
+    document.getElementById("payText").innerHTML =
+    "<b>Scan QR to Donate ₹" + amount + "</b>";
+
+    document.getElementById("qrcode").innerHTML = "";
+
+    QRCode.toCanvas(
+        upi,
+        {width:220},
+        function(error,canvas){
+
+            if(!error){
+
+                document
+                .getElementById("qrcode")
+                .appendChild(canvas);
+
+            }
+
+        }
+    );
+
+}
+
+function customAmount(){
+
+    var mobile =
+    /Android|iPhone|iPad|iPod/i.test(
+    navigator.userAgent
+    );
+
+    if(mobile){
+
+        window.location.href =
+        "upi://pay?pa=9213816442@apl"
+        + "&pn=" + encodeURIComponent("Raj Kumar")
+        + "&cu=INR"
+        + "&tn=" + encodeURIComponent(
+        "Donate to Raj Kumar for Akshar Hanuman Dham"
+        );
+
+        return;
+
+    }
+
+    var amt = prompt("दान राशि दर्ज करें");
+
+    if(amt === null) return;
+
+    amt = amt.trim();
+
+    if(
+        !/^\d+$/.test(amt)
+        ||
+        parseInt(amt) <= 0
+    ){
+
+        alert("कृपया सही राशि दर्ज करें");
+        return;
+
+    }
+
+    pay(parseInt(amt));
+
+}
+
+function copyUpi(){
+
+    navigator.clipboard.writeText(
+    "9213816442@apl"
+    );
+
+    alert("UPI ID Copied");
+
+}
+
+</script>
