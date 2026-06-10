@@ -30,8 +30,8 @@ const banners = [
     expiry: '2100-01-01T23:59:59'
   },
   {
-      img: 'https://aksharmty.github.io/aksharhanumandham/ads/manifest.jpeg',
-      link: 'https://rajkumarspiritualhealing.adquash.com/workshop.html',
+      img: 'https://compoundtrading.adquash.com/trade-cycle.png',
+      link: 'https://compoundtrading.adquash.com/crypto-compounding.html',
     expiry: '2100-01-01T23:59:59'
   }, 
   {
