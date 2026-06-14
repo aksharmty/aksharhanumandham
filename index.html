@@ -1,6 +1,6 @@
 <script type="text/javascript">
     if (window.location.pathname === "/index.html") {
-        window.location.replace("https://aksharhanumandham.in");
+        window.location.replace("https://aksharhanumandham.in/");
     }
 </script>
 <!DOCTYPE html>
@@ -755,6 +755,10 @@ Blessing का उद्देश्य सकारात्मकता, म�
 </style>
 
 <!-- 2. POPUP BANNER HTML (Ise <body> tag ke andar kahin bhi daal dein) -->
+    <!-- PWA Install Button (Aap ise apne menu ke andar ya kahin bhi rakh sakte hain) -->
+<button id="pwa-install-btn" style="display: none; background-color: #FF6600; color: white; border: none; padding: 8px 15px; font-size: 14px; font-weight: bold; border-radius: 20px; cursor: pointer; box-shadow: 0px 4px 6px rgba(0,0,0,0.2); transition: 0.3s; align-items: center; gap: 5px;">
+  App Install Karein 🚩
+</button>
 <div id="pwa-popup" class="pwa-popup-overlay">
     <div class="pwa-popup-title">🚩 अक्षर हनुमान धाम ऐप</div>
     <div class="pwa-popup-text">रोज़ाना दर्शन, आरती और चालीसा के लिए ऐप को अपने मोबाइल या डेस्कटॉप पर इंस्टॉल करें।</div>
@@ -766,55 +770,79 @@ Blessing का उद्देश्य सकारात्मकता, म�
 
 <!-- 3. POPUP LOGIC JAVASCRIPT (Ise </body> ke just upar rakhein) -->
 <script>
-    let deferredPrompt;
-    const pwaPopup = document.getElementById('pwa-popup');
-    const installBtn = document.getElementById('pwa-install-btn');
-    const closeBtn = document.getElementById('pwa-close-btn');
+  let deferredPrompt;
+  const installBtn = document.getElementById('pwa-install-btn');
 
-    // Browser check karta hai ki kya app install kiya ja sakta hai
-    window.addEventListener('beforeinstallprompt', (e) => {
-        // Browser ka apna normal toolbar chhupe
-        e.preventDefault();
-        // Event ko save karein
-        deferredPrompt = e;
+  // 1. Browser se Install Prompt ko pakadna
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Browser ka apna default prompt rokein
+    e.preventDefault();
+    // Event ko save karein
+    deferredPrompt = e;
+    
+    // "App Install Karein" button ko screen par dikhayein
+    if (installBtn) {
+      installBtn.style.display = 'inline-flex';
+    }
 
-        // Check karein ki user ne pehle 'बाद में' to nahi dabaya tha is session mein
-        if (!sessionStorage.getItem('pwa-dismissed')) {
-            // Popup ko screen par smooth upar lekar aane ke liye class add karein
-            setTimeout(() => {
-                pwaPopup.classList.add('show');
-            }, 2000); // Website khulne ke 2 second baad dikhega
-        }
-    });
+    // Agar user ne pehle 'बाद में' par click nahi kiya hai, toh popup bhi dikhayein
+    if (!sessionStorage.getItem('pwa_popup_dismissed')) {
+      setTimeout(() => {
+        const popup = document.getElementById('pwa-popup');
+        if (popup) popup.style.display = 'block';
+      }, 3000); // 3 second baad automatic popup khulega
+    }
+  });
 
-    // Install Button click karne par
+  // 2. Jab user hamare naye "App Install" button par click kare
+  if (installBtn) {
     installBtn.addEventListener('click', async () => {
-        if (deferredPrompt) {
-            // Browser ka official install option kholein
-            deferredPrompt.prompt();
-            // User ka choice wait karein
-            const { outcome } = await deferredPrompt.userChoice;
-            if (outcome === 'accepted') {
-                console.log('Bhakat ne app install kar liya.');
-            }
-            deferredPrompt = null;
-            // Popup ko gayab karein
-            pwaPopup.classList.remove('show');
+      if (deferredPrompt) {
+        // Install ka bada box (prompt) dikhayein
+        deferredPrompt.prompt();
+        // User ka decision check karein
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          console.log('User ne app install kar li.');
+          installBtn.style.display = 'none'; // Button chhupa dein
         }
-    });
-
-    // Close Button (बाद में) click karne par
-    closeBtn.addEventListener('click', () => {
-        pwaPopup.classList.remove('show');
-        // Session storage mein save karein taaki jab tak tab खुला hai, baar baar pareshan na kare
-        sessionStorage.setItem('pwa-dismissed', 'true');
-    });
-
-    // Agar app successfully install ho jata hai
-    window.addEventListener('appinstalled', () => {
-        pwaPopup.classList.remove('show');
         deferredPrompt = null;
+      }
     });
-</script>    
+  }
+
+  // 3. Purane Popup ke buttons ka kaam (Haan / Baad Mein)
+  document.addEventListener('click', async (e) => {
+    if (e.target.id === 'pwa-accept') {
+      const popup = document.getElementById('pwa-popup');
+      if (popup) popup.style.display = 'none';
+      
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          if (installBtn) installBtn.style.display = 'none';
+        }
+        deferredPrompt = null;
+      }
+    }
+
+    if (e.target.id === 'pwa-decline') {
+      const popup = document.getElementById('pwa-popup');
+      if (popup) popup.style.display = 'none';
+      // Ek session ke liye popup band rakhein
+      sessionStorage.setItem('pwa_popup_dismissed', 'true');
+    }
+  });
+
+  // 4. App install hone ke baad button ko gayab karna
+  window.addEventListener('appinstalled', () => {
+    console.log('PWA installed successfully');
+    if (installBtn) installBtn.style.display = 'none';
+    const popup = document.getElementById('pwa-popup');
+    if (popup) popup.style.display = 'none';
+    deferredPrompt = null;
+  });
+</script>  
 </body>
 </html>
