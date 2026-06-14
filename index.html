@@ -667,5 +667,140 @@ Blessing का उद्देश्य सकारात्मकता, म�
 </script>
 
 <script src="//aksharhanumandham.in/js/loader1.js"></script>
+<!-- 1. POPUP BANNER CSS (Ise <head> tag ke andar dalein) -->
+<style>
+    .pwa-popup-overlay {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(150%);
+        width: 90%;
+        max-width: 450px;
+        background-color: #ffffff;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        border-radius: 12px;
+        border-top: 5px solid #ff5722; /* Hanuman ji ka saffron color */
+        padding: 15px 20px;
+        z-index: 999999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    /* Popup active karne ke liye class */
+    .pwa-popup-overlay.show {
+        transform: translateX(-50%) translateY(0);
+    }
+    .pwa-popup-title {
+        color: #d84315;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0 0 8px 0;
+    }
+    .pwa-popup-text {
+        font-size: 14px;
+        color: #555555;
+        margin: 0 0 15px 0;
+        line-height: 1.4;
+    }
+    .pwa-btn-group {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+    }
+    .pwa-install-btn {
+        flex: 2;
+        background-color: #ff5722;
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .pwa-install-btn:hover {
+        background-color: #e64a19;
+    }
+    .pwa-close-btn {
+        flex: 1;
+        background-color: #f1f1f1;
+        color: #333333;
+        border: none;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+    .pwa-close-btn:hover {
+        background-color: #e0e0e0;
+    }
+</style>
+
+<!-- 2. POPUP BANNER HTML (Ise <body> tag ke andar kahin bhi daal dein) -->
+<div id="pwa-popup" class="pwa-popup-overlay">
+    <div class="pwa-popup-title">🚩 अक्षर हनुमान धाम ऐप</div>
+    <div class="pwa-popup-text">रोज़ाना दर्शन, आरती और चालीसा के लिए ऐप को अपने मोबाइल या डेस्कटॉप पर इंस्टॉल करें।</div>
+    <div class="pwa-btn-group">
+        <button id="pwa-install-btn" class="pwa-install-btn">इन्स्टॉल करें 📲</button>
+        <button id="pwa-close-btn" class="pwa-close-btn">बाद में</button>
+    </div>
+</div>
+
+<!-- 3. POPUP LOGIC JAVASCRIPT (Ise </body> ke just upar rakhein) -->
+<script>
+    let deferredPrompt;
+    const pwaPopup = document.getElementById('pwa-popup');
+    const installBtn = document.getElementById('pwa-install-btn');
+    const closeBtn = document.getElementById('pwa-close-btn');
+
+    // Browser check karta hai ki kya app install kiya ja sakta hai
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Browser ka apna normal toolbar chhupe
+        e.preventDefault();
+        // Event ko save karein
+        deferredPrompt = e;
+
+        // Check karein ki user ne pehle 'बाद में' to nahi dabaya tha is session mein
+        if (!sessionStorage.getItem('pwa-dismissed')) {
+            // Popup ko screen par smooth upar lekar aane ke liye class add karein
+            setTimeout(() => {
+                pwaPopup.classList.add('show');
+            }, 2000); // Website khulne ke 2 second baad dikhega
+        }
+    });
+
+    // Install Button click karne par
+    installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+            // Browser ka official install option kholein
+            deferredPrompt.prompt();
+            // User ka choice wait karein
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                console.log('Bhakat ne app install kar liya.');
+            }
+            deferredPrompt = null;
+            // Popup ko gayab karein
+            pwaPopup.classList.remove('show');
+        }
+    });
+
+    // Close Button (बाद में) click karne par
+    closeBtn.addEventListener('click', () => {
+        pwaPopup.classList.remove('show');
+        // Session storage mein save karein taaki jab tak tab खुला hai, baar baar pareshan na kare
+        sessionStorage.setItem('pwa-dismissed', 'true');
+    });
+
+    // Agar app successfully install ho jata hai
+    window.addEventListener('appinstalled', () => {
+        pwaPopup.classList.remove('show');
+        deferredPrompt = null;
+    });
+</script>    
 </body>
 </html>
