@@ -3,7 +3,7 @@ self.addEventListener('install', (e) => {
     caches.open('hanuman-dham-v1').then((cache) => {
       return cache.addAll([
         '/',
-        '/index.html'
+        '/'
       ]);
     })
   );
