@@ -91,6 +91,7 @@ const banners = [
     <div style="position: relative;">
       <a href="${banner.link}" target="_blank" style="display: block;">
         <img src="${banner.img}" alt="Banner" style="width:100%; max-height:250px; display:block;">
+        <img src="${banner.img}" alt="Banner" loading="lazy" decoding="async" style="width:100%; max-height:250px; display:block;">
       </a>
       <a href="https://aksharhanumandham.in/advertise.html" target="_blank"
          style="
