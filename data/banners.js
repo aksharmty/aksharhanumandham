@@ -54,16 +54,6 @@ const banners = [
       link: 'https://adquash.com',
     expiry: '2100-01-01T23:59:59'
   },
-  {
-      img: 'https://aksharhanumandham.in/ads/5-minute.png',
-      link: 'https://aksharhanumandham.in',
-    expiry: '2100-01-01T23:59:59'
-  },
-  {
-      img: 'https://aksharhanumandham.in/ads/hypnosis.png',
-      link: 'https://aksharmty.adquash.com/hypnosis-course.html',
-    expiry: '2100-01-01T23:59:59'
-  },
   { 
      img: 'https://aksharhanumandham.in/ads/kucoin.png',
     link: 'https://compoundtrading.adquash.com/kucoin-dca-bot.html',
