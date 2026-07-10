@@ -56,7 +56,7 @@ const banners = [
   },
   { 
      img: 'https://aksharhanumandham.in/ads/kucoin.png',
-    link: 'https://compoundtrading.adquash.com/kucoin-dca-bot.html',
+    link: 'https://gridbot.adquash.com/',
    expiry: '2100-01-01T23:59:59' },
   {
       img: 'https://aksharhanumandham.in/ads/advertise.png',
