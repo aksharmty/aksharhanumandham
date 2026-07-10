@@ -31,11 +31,6 @@ const banners = [
         expiry: '2100-01-01T23:59:59'
     },
     {
-        img: 'https://aksharmty.github.io/aksharhanumandham/ads/manifest.jpeg',
-        link: 'https://approveme.adquash.com',
-        expiry: '2100-01-01T23:59:59'
-    },
-    {
         img: 'https://aksharhanumandham.in/ads/shubham.png',
         link: 'https://wa.me/918750685516',
         expiry: '2100-01-01T23:59:59'
@@ -56,26 +51,6 @@ const banners = [
         expiry: '2100-01-01T23:59:59'
     },
     {
-        img: 'https://aksharhanumandham.in/ads/feed.png',
-        link: 'https://adquash.com',
-        expiry: '2100-01-01T23:59:59'
-    },
-    {
-        img: 'https://aksharhanumandham.in/ads/5-minute.png',
-        link: 'https://aksharhanumandham.in',
-        expiry: '2100-01-01T23:59:59'
-    },
-    {
-        img: 'https://aksharhanumandham.in/ads/hit.png',
-        link: 'https://compoundtrading.adquash.com/bot.html',
-        expiry: '2100-01-01T23:59:59'
-    },
-    {
-        img: 'https://aksharhanumandham.in/ads/hypnosis.png',
-        link: 'https://aksharmty.adquash.com/hypnosis-course.html',
-        expiry: '2100-01-01T23:59:59'
-    },
-     {
         img: 'https://aksharhanumandham.in/ads/angel.jpg',
         link: 'https://www.angelone.in/signup/register?referrer=RA16442GRF',
         expiry: '2100-01-01T23:59:59'
