@@ -26,8 +26,9 @@
 
   // Homepage / Index page condition check
   var isTripPage =
+    path === "" ||
     path === "/index.html" ||
-    path.endsWith("/index.html");
+    path.endsWith("/index.html") ;
 
   var hasQuery = location.search.length > 0;
 
