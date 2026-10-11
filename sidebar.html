@@ -7,50 +7,53 @@
 <hr style="height:1px;width:100%;color:#000000;">
 <!-- HOME / TRIP.COM ONLY -->
 <div id="adHome" style="display:none">
-  <center> <a href="https://www.trip.com/?Allianceid=7779297&SID=293012938&trip_sub1=&trip_sub3=D11417268"
-            target="_blank" rel="nofollow noopener" style="background: linear-gradient(135deg, #0077ff, #00c6ff); color: #fff; text-decoration: none; font-weight: bold; border-radius: 8px; display:block; padding:10px;">
-            ✈️ Fly with Trip.com  
-            <br>Best deals on flights & hotels
-        </a></center>
+  <center>
+    <a href="https://www.trip.com/?Allianceid=7779297&SID=293012938&trip_sub1=&trip_sub3=D11417268"
+       target="_blank" rel="nofollow noopener" 
+       style="background: linear-gradient(135deg, #0077ff, #00c6ff); color: #fff; text-decoration: none; font-weight: bold; border-radius: 8px; display:block; padding:10px;">
+        ✈️ Fly with Trip.com  
+        <br>Best deals on flights & hotels
+    </a>
+  </center>
 </div>
 
-<!-- INNER PAGE ONLY -->
+<!-- INNER PAGE ONLY (DYNAMIC ADSENSE) -->
 <div id="adInner" style="display:none"></div>
 
 <script>
 (function(){
-  // 1. Sahi path variable define kiya gaya hai
   var path = window.location.pathname;
 
+  // Homepage / Index page condition check
   var isTripPage =
     path === "/" ||
-    path.endsWith("index.html") ||
     path === "/index.html" ||
-    path.endsWith("/index.html");
+    path.endsWith("/index.html") ||
+    path.endsWith("index.html");
 
   var hasQuery = location.search.length > 0;
 
-  // 2. Agar Trip page hai toh Trip.com dikhega
+  // 1. Home page par Trip.com show hoga
   if (isTripPage) {
     var homeBox = document.getElementById("adHome");
     if (homeBox) homeBox.style.display = "block";
     return;
   }
 
-  // 3. Baki pages ke liye Google AdSense
+  // 2. Inner pages (bina URL query params ke) par AdSense load hoga
   if (!hasQuery) {
     var box = document.getElementById("adInner");
     if (box) {
       box.style.display = "block";
 
-      // create adsense script
+      // Dynamically load AdSense JS
       var s = document.createElement("script");
       s.async = true;
       s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4305348743992957";
       s.crossOrigin = "anonymous";
       document.head.appendChild(s);
 
-      // ad container
+      // AdSense Container
       var ins = document.createElement("ins");
       ins.className = "adsbygoogle";
       ins.style.display = "inline-block";
@@ -65,10 +68,9 @@
       };
     }
   }
-
 })();
 </script>
-<hr>
+<hr style="height:1px;width:100%;color:#000000;">
 <!-- script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4305348743992957"
      crossorigin="anonymous"></script>
 <!-- 300 -- >
