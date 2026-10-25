@@ -58,6 +58,10 @@ const banners = [
      img: 'https://aksharhanumandham.in/ads/kucoin.png',
     link: 'https://gridbot.adquash.com/',
    expiry: '2100-01-01T23:59:59' },
+  { 
+     img: 'https://aksharhanumandham.in/ads/free-bot.png',
+    link: 'https://gridbot.adquash.com/free-trading-bot.html',
+   expiry: '2100-01-01T23:59:59' },
   {
       img: 'https://aksharhanumandham.in/ads/advertise.png',
       link: 'https://aksharhanumandham.in/advertise.html',
