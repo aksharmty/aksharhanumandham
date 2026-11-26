@@ -53,8 +53,8 @@ const banners = [
     link: 'https://gridbot.adquash.com/free-trading-bot.html',
    expiry: '2100-01-01T23:59:59' },
     {
-        img: 'https://aksharhanumandham.in/ads/advertise.png',
-        link: 'https://aksharhanumandham.in/advertise.html',
+        img: 'https://gridbot.adquash.com/bot-script-promo-300.png',
+        link: 'https://gridbot.adquash.com/grid-dca-bot-script.html',
         expiry: '2100-01-01T12:00:00'
     }
 ];
